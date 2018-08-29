@@ -1,0 +1,40 @@
+#' Data set used for example purposes (see examples and description in swe_landsting)
+#'
+#' @format A data frame with 9 rows and 3 variables. The negligible variables have been removed from the original data set:
+#' \describe{
+#'   \item{NAME_1}{name of county, character}
+#'   \item{long}{longitude, numeric}
+#'   \item{lat}{latitude, numeric}
+#' }
+#'
+#' @examples
+#' library(ggplot2)
+#'
+#' # Example on how to make map of Sweden using ggplot2.
+#' # Note that coord_map() is essential for the map to be in actual scale.
+#'
+#' ggplot(data = swe_landsting, aes(x=long, y=lat, group = group)) +
+#'   geom_polygon(color = "white", size = 0, fill = "grey")  +
+#'   geom_point(data = cnames1, aes(x = long, y = lat, group = NAME_1, shape = NAME_1), size = 6*0.352777778, color = "black") +
+#'   scale_shape_manual(values = as.character(1:9), guide = guide_legend(ncol = 1)) +
+#'   geom_text(data = cnames2, aes(x = long, y = lat, group = NAME_1, label = as.character(NAME_1)), size = 6*0.352777778, color = "black", hjust = 0.5) +
+#'   coord_map() +
+#'   theme_minimal() +
+#'   xlab("") +
+#'   ylab("") +
+#'   theme(plot.title = element_blank(),
+#'         axis.text = element_blank(),
+#'         axis.title.x = element_text(size = 8, color = "black"),
+#'         axis.title.y = element_text(size = 8, color = "black"),
+#'         panel.grid = element_blank(),
+#'         panel.background = element_blank(),
+#'         axis.ticks = element_blank(),
+#'         legend.text = element_text(size = 6),
+#'         legend.title = element_blank(),
+#'         legend.key.height = unit(6, "pt"),
+#'         legend.key.width = unit(6, "pt"),
+#'         legend.position = c(-0.13,1),
+#'         legend.justification = c(0,1),
+#'         plot.margin = margin(0,0,0,0, unit = "cm"))
+#'
+"cnames1"
