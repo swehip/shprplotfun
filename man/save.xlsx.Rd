@@ -9,7 +9,8 @@ save.xlsx(file, ..., row_names = FALSE, col_names = TRUE)
 \arguments{
 \item{file}{Filename.}
 
-\item{...}{Data frames or matrices, where each data frame will be saved into one sheet.}
+\item{...}{Data frames or matrices, where each data frame will be saved into
+one sheet.}
 
 \item{row_names}{If TRUE, row names are included in output.}
 

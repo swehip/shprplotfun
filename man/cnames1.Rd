@@ -3,18 +3,18 @@
 \docType{data}
 \name{cnames1}
 \alias{cnames1}
-\title{Data set used for example purposes (see examples and description in swe_landsting)}
-\format{A data frame with 9 rows and 3 variables. The negligible variables have been removed from the original data set:
-\describe{
-  \item{NAME_1}{name of county, character}
-  \item{long}{longitude, numeric}
-  \item{lat}{latitude, numeric}
-}}
+\title{Data set used for example purposes (see examples and description in
+swe_landsting)}
+\format{A data frame with 9 rows and 3 variables. The negligible variables
+  have been removed from the original data set: \describe{ \item{NAME_1}{name
+  of county, character} \item{long}{longitude, numeric} \item{lat}{latitude,
+  numeric} }}
 \usage{
 cnames1
 }
 \description{
-Data set used for example purposes (see examples and description in swe_landsting)
+Data set used for example purposes (see examples and description in
+swe_landsting)
 }
 \examples{
 library(ggplot2)
@@ -24,9 +24,13 @@ library(ggplot2)
 
 ggplot(data = swe_landsting, aes(x=long, y=lat, group = group)) +
   geom_polygon(color = "white", size = 0, fill = "grey")  +
-  geom_point(data = cnames1, aes(x = long, y = lat, group = NAME_1, shape = NAME_1), size = 6*0.352777778, color = "black") +
-  scale_shape_manual(values = as.character(1:9), guide = guide_legend(ncol = 1)) +
-  geom_text(data = cnames2, aes(x = long, y = lat, group = NAME_1, label = as.character(NAME_1)), size = 6*0.352777778, color = "black", hjust = 0.5) +
+  geom_point(data = cnames1, aes(x = long, y = lat, group = NAME_1,
+  shape = NAME_1), size = 6*0.352777778, color = "black") +
+  scale_shape_manual(values = as.character(1:9),
+  guide = guide_legend(ncol = 1)) +
+  geom_text(data = cnames2, aes(x = long, y = lat, group = NAME_1,
+  label = as.character(NAME_1)), size = 6*0.352777778,
+  color = "black", hjust = 0.5) +
   coord_map() +
   theme_minimal() +
   xlab("") +

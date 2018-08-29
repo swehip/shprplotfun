@@ -2,7 +2,8 @@
 #'
 #' A dataset used to create elegant figures of Sweden with ggplot2.
 #'
-#' @format A data frame with 407898 rows and 5 variables. The negligible variables with just one type of observation
+#' @format A data frame with 407898 rows and 5 variables.
+#' The negligible variables with just one type of observation
 #' have been removed from the original data set:
 #' \describe{
 #'   \item{long}{longitude, numeric}

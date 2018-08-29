@@ -26,11 +26,6 @@ Calculates Brittish EQ-ED-index using a known linear model (Dolan).
 \examples{
 # Returns intercept
 eqindBrit(1,1,1,1,1)
-# [1] 1
-
 eqindBrit(NA,1,1,1,1)
-# [1] NA
-
 eqindBrit(5,1,1,1,1)
-# [1] NA
 }

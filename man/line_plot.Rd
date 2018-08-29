@@ -6,34 +6,40 @@
 \usage{
 line_plot(df, x_var, color_var = NULL, y_var = NULL,
   group_by_x_var = TRUE, y_percent = TRUE, y_lim = NULL,
-  y_breaks = 2000, y_breaks_end = 1e+05, line_size = 1, title = NULL,
-  subtitle = NULL, title_size = 14, subtitle_size = 10,
-  title_margin = 1, y_lab = NULL, x_lab = NULL,
+  y_breaks = 2000, y_breaks_end = 1e+05, line_size = 1,
+  title = NULL, subtitle = NULL, title_size = 14,
+  subtitle_size = 10, title_margin = 1, y_lab = NULL, x_lab = NULL,
   background_color = "moccasin", panel_grid_color = "grey",
   panel_grid_size = 0.3, axis_size = 0.3, axis_text_angle = 0,
-  text_size = 8, fill_colors = c("#377EB8", "#E41A1C", "#4DAF4A", "#984EA3",
-  "#FF7F00", "#FFFF33", "#A65628", "#F781BF"), legend_pos = "bottom",
-  legend_labels = waiver(), label_breaks = waiver(),
-  legend_background = "transparent", legend_row = NULL, legend_col = NULL)
+  text_size = 8, fill_colors = c("#377EB8", "#E41A1C", "#4DAF4A",
+  "#984EA3", "#FF7F00", "#FFFF33", "#A65628", "#F781BF"),
+  legend_pos = "bottom", legend_labels = waiver(),
+  label_breaks = waiver(), legend_background = "transparent",
+  legend_row = NULL, legend_col = NULL)
 }
 \arguments{
 \item{df}{Data frame.}
 
-\item{x_var}{Variable for x-axis, use string name. Recommended that x_var is in character in df (not necessary).}
+\item{x_var}{Variable for x-axis, use string name. Recommended that x_var is
+in character in df (not necessary).}
 
-\item{color_var}{Variable for the different colors in lines, use string name. Use NULL if only one color for lines.}
+\item{color_var}{Variable for the different colors in lines, use string
+name. Use NULL if only one color for lines.}
 
 \item{y_var}{Variable for y axis, if NULL, count is used.}
 
-\item{group_by_x_var}{Boolean indicating if percentages should be for x_var or color_var.}
+\item{group_by_x_var}{Boolean indicating if percentages should be for x_var
+or color_var.}
 
-\item{y_percent}{If TRUE, y-axis is in percent form. Otherwise in count form.}
+\item{y_percent}{If TRUE, y-axis is in percent form. Otherwise in count
+form.}
 
 \item{y_lim}{Limit on y-axis.}
 
 \item{y_breaks}{Length between each break on y-axis.}
 
-\item{y_breaks_end}{Break end, default for 100000. Works for all count values below that.}
+\item{y_breaks_end}{Break end, default for 100000. Works for all count
+values below that.}
 
 \item{line_size}{Size of the lines.}
 
@@ -45,7 +51,8 @@ line_plot(df, x_var, color_var = NULL, y_var = NULL,
 
 \item{subtitle_size}{Text size of subtitle in pt.}
 
-\item{title_margin}{Distance between subtitle and title in pt. If no subtitle, title_margin  0.5*title_size.}
+\item{title_margin}{Distance between subtitle and title in pt. If no
+subtitle, title_margin  0.5*title_size.}
 
 \item{y_lab}{Y-axis label, use NULL for no label.}
 
@@ -55,17 +62,20 @@ line_plot(df, x_var, color_var = NULL, y_var = NULL,
 
 \item{panel_grid_color}{Color of the panel grid lines.}
 
-\item{panel_grid_size}{Size of the panel grid lines in plot, useful to change if large dpi!}
+\item{panel_grid_size}{Size of the panel grid lines in plot, useful to
+change if large dpi!}
 
 \item{axis_size}{Size of the axis lines.}
 
-\item{axis_text_angle}{Angle of the tick texts, 45 is recommended for many x levels.}
+\item{axis_text_angle}{Angle of the tick texts, 45 is recommended for many x
+levels.}
 
 \item{text_size}{Size of the text in pt.}
 
 \item{fill_colors}{Colors of the different categories in color_var.}
 
-\item{legend_pos}{Position of the legend in plot, if c(1,1), c(1,0) etc, legend inside plot.}
+\item{legend_pos}{Position of the legend in plot, if c(1,1), c(1,0) etc,
+legend inside plot.}
 
 \item{legend_labels}{Label for each legend key.}
 
@@ -88,13 +98,17 @@ library(ggplot2)
 library(dplyr)
 # y_percent = TRUE
 line_plot(df = diamonds, x_var = 'cut', color_var = 'color', y_breaks = 2)
-line_plot(df = diamonds, x_var = 'cut', color_var = 'color', group_by_x_var = FALSE, y_breaks = 2)
+line_plot(df = diamonds, x_var = 'cut', color_var = 'color',
+group_by_x_var = FALSE, y_breaks = 2)
 
 # y_percent = FALSE
-line_plot(df = diamonds, x_var = 'cut', color_var = 'color', y_percent = FALSE, y_breaks = 2000)
+line_plot(df = diamonds, x_var = 'cut', color_var = 'color',
+y_percent = FALSE, y_breaks = 2000)
 
 # y variable included
 df <- diamonds \%>\% group_by_('color', 'cut') \%>\% summarise(y = n())
-line_plot(df = df, x_var = 'cut', color_var = 'color', y_var = 'y', y_percent = FALSE, y_breaks = 2000)
-line_plot(df = df[df$color == 'D',], x_var = 'cut', y_var = 'y', y_percent = FALSE, y_breaks = 500)
+line_plot(df = df, x_var = 'cut', color_var = 'color', y_var = 'y',
+y_percent = FALSE, y_breaks = 2000)
+line_plot(df = df[df$color == 'D',], x_var = 'cut', y_var = 'y',
+y_percent = FALSE, y_breaks = 500)
 }

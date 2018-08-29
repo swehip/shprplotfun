@@ -1,13 +1,22 @@
 Package: shprplotfun
 Type: Package
 Title: R functions for SHPR annual report
-Version: 0.1.0
+Version: 0.1.1
 Author: Daniel Odin <daniel.odin@gmail.com>
 Maintainer: Daniel Odin <daniel.odin@gmail.com>
 Description: Several functions used for SHPR annual report, 
     mostly plot functions where some functions are more general, 
     such as bar_plot, km_plot, line_plot, and trend_age.
 Encoding: UTF-8
-Imports: ggplot2, dplyr, gridExtra, xlsx, mapproj
+Imports: 
+  ggplot2, 
+  dplyr, 
+  gridExtra, 
+  xlsx, 
+  mapproj,
+  haven
 LazyData: true
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.0.9000
+URL: https://www.github.com/swehip/shprplotfun
+BugReports: https://github.com/swehip/shprplotfun/issues
+License: MIT + file LICENSE

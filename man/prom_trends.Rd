@@ -6,9 +6,10 @@
 \usage{
 prom_trends(eq_vas_exp, eq_vas_obs, eq_vas_riket, pain_exp, pain_obs,
   pain_riket, satis_exp, satis_obs, satis_riket, riket_name = "Riket",
-  y_labs = c("EQ VAS", "Smärt VAS", "Tillfredställelse"), y_breaks = c(5,
-  5, 5), year = c("2008/09", "2010/11", "2012/13", "2014/15"), subset = 1,
-  text_size = 8, legend_labels = c("Förväntat", "Observerat", "Riket"),
+  y_labs = c("EQ VAS", "SmÃ¤rt VAS", "TillfredstÃ¤llelse"),
+  y_breaks = c(5, 5, 5), year = c("2008/09", "2010/11", "2012/13",
+  "2014/15"), subset = 1, text_size = 8,
+  legend_labels = c("FÃ¶rvÃ¤ntat", "Observerat", "Riket"),
   line_colors = c("#377EB8", "#E41A1C", "black"),
   background_color = "moccasin", panel_grid_color = "grey",
   panel_grid_size = 0.3, axis_size = 0.3, line_size = 0.5,
@@ -33,13 +34,16 @@ prom_trends(eq_vas_exp, eq_vas_obs, eq_vas_riket, pain_exp, pain_obs,
 
 \item{satis_riket}{Data frame with Swedish average satisfaction VAS data.}
 
-\item{riket_name}{Character to find what row is Swedish average, usually named "Riket".}
+\item{riket_name}{Character to find what row is Swedish average,
+usually named "Riket".}
 
 \item{y_breaks}{Y breaks in the three plots.}
 
-\item{year}{X-axis years, character vector works. The year variables will be renamed as they appear in the data set.}
+\item{year}{X-axis years, character vector works.
+The year variables will be renamed as they appear in the data set.}
 
-\item{subset}{Which plots should be generated, subset = 1 corresponds to the first plot in alphabetical order.}
+\item{subset}{Which plots should be generated, subset = 1
+corresponds to the first plot in alphabetical order.}
 
 \item{text_size}{Text size in pt.}
 
@@ -51,7 +55,8 @@ prom_trends(eq_vas_exp, eq_vas_obs, eq_vas_riket, pain_exp, pain_obs,
 
 \item{panel_grid_color}{Color of the panel grid lines.}
 
-\item{panel_grid_size}{Size of the panel grid lines in plot, useful to change if large dpi!}
+\item{panel_grid_size}{Size of the panel grid lines in plot,
+useful to change if large dpi!}
 
 \item{axis_size}{Size of the axis lines, useful to change if large dpi!}
 
@@ -59,25 +64,28 @@ prom_trends(eq_vas_exp, eq_vas_obs, eq_vas_riket, pain_exp, pain_obs,
 
 \item{point_size}{Point sizes in plot.}
 
-\item{legend_pos}{Position of the legend in plot, matrix where each row corresponds to a legend position is recommended, if length(subset) > 1.}
+\item{legend_pos}{Position of the legend in plot, matrix where each row
+corresponds to a legend position is recommended, if length(subset) > 1.}
 
 \item{n_row}{Number of rows for the three plots. Default is 1.}
 
 \item{n_col}{Number of columns for the three plots. Default is 3.}
 }
 \value{
-List of several gtable objects where each gtable object is one clinic.
+List of several gtable objects where each gtable object is one clinic
 }
 \description{
 Visualizing PROM-trends for each clinic using ggplot2.
 }
 \examples{
 # Create trend plot for SU/Mölndal
-# Look at the 9 data sets to see the required structure. Data sets are included in the package.
+# Look at the 9 data sets to see the required structure.
+Data sets are included in the package.
 
-example_plot <- prom_trends(eq_vas_exp, eq_vas_obs, eq_vas_riket, pain_exp,
-                            pain_obs, pain_riket, satis_exp, satis_obs, satis_riket,
-                            y_breaks = c(5, 0.1, 0.1), subset = 49)
+example_plot <- prom_trends(
+  eq_vas_exp, eq_vas_obs, eq_vas_riket, pain_exp,
+  pain_obs, pain_riket, satis_exp, satis_obs, satis_riket,
+  y_breaks = c(5, 0.1, 0.1), subset = 49)
 
 plot(example_plot)
 }

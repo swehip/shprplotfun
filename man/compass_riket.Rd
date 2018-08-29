@@ -7,18 +7,20 @@
 compass_riket(df, riket_name = "Riket", axis_titles = names(df)[-1],
   poly_color = "#D95F02", color_alpha = 0.6,
   title = "Kvalitetsindikatorer",
-  subtitle = "värdekompass - riksgenomsnitt", title_size = 12,
+  subtitle = "vÃ¤rdekompass - riksgenomsnitt", title_size = 12,
   subtitle_size = 8, axis_text_size = 8, line_size = 0.1,
   axis_text_position = 1, v_just = "outward", h_just = "middle")
 }
 \arguments{
 \item{df}{Data frame.}
 
-\item{axis_titles}{Titles on the axis, character vector works. If long titles, use '\n' to end line!}
+\item{axis_titles}{Titles on the axis, character vector works. If long
+titles, use '\n' to end line!}
 
 \item{poly_color}{Color of the polygon.}
 
-\item{color_alpha}{Modify color transparency for polygon color. Should be the same as alpha_riket for function compass.}
+\item{color_alpha}{Modify color transparency for polygon color. Should be the
+same as alpha_riket for function compass.}
 
 \item{title}{Title of the compass, use NULL for no title.}
 
@@ -30,16 +32,20 @@ compass_riket(df, riket_name = "Riket", axis_titles = names(df)[-1],
 
 \item{axis_text_size}{Text size of axis titles in pt.}
 
-\item{line_size}{Size of the lines in the choord, useful to change if large dpi!}
+\item{line_size}{Size of the lines in the choord, useful to change if large
+dpi!}
 
 \item{axis_text_position}{Where the text is on the axis.}
 
-\item{v_just}{Vertical adjustments to the text on the axis, "outward" is default means text is aligned away from the center.}
+\item{v_just}{Vertical adjustments to the text on the axis, "outward" is
+default means text is aligned away from the center.}
 
-\item{h_just}{Horizontal adjustments to the text on the axis, "middle" is default.}
+\item{h_just}{Horizontal adjustments to the text on the axis, "middle" is
+default.}
 }
 \value{
-Ggplot object containing compass plot of Swedish average with text on the axis.
+Ggplot object containing compass plot of Swedish average with text on
+  the axis.
 }
 \description{
 Radar plot with axis names using ggplot2.
@@ -47,8 +53,16 @@ Radar plot with axis names using ggplot2.
 \examples{
 # Create one Swedish average compass with normalized data
 
-axis_titles <- c("Tillfredst\\u00E4llelse", "Vinst i sm\\u00E4rta\\nefter 1 \\u00E5r", "EQ5D-vinst\\nefter 1 \\u00E5r", "Adverse events\\ninom 90 dagar",
-                 "T\\u00E4ckningsgrad", "Reoperation\\ninom 2 \\u00E5r", "Implantat-\\n     \\u00F6verlevnad 5 \\u00E5r", "Implantat-\\n\\u00F6verlevnad 10 \\u00E5r")
+axis_titles <- c(
+  "Tillfredst\\u00E4llelse",
+  "Vinst i sm\\u00E4rta\\nefter 1 \\u00E5r",
+  "EQ5D-vinst\\nefter 1 \\u00E5r",
+  "Adverse events\\ninom 90 dagar",
+  "T\\u00E4ckningsgrad",
+  "Reoperation\\ninom 2 \\u00E5r",
+  "Implantat-\\n     \\u00F6verlevnad 5 \\u00E5r",
+  "Implantat-\\n\\u00F6verlevnad 10 \\u00E5r"
+)
 
 compass_riket(norm_compass_data, axis_titles = axis_titles)
 

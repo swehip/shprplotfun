@@ -1,7 +1,8 @@
 #' Swedish average EQ VAS dataset
 #'
 #' A dataset containing Swedish average EQ VAS for four year periods:
-#' 2008/2009, 2010/2011, 2012/2013, and 2014/2015. Data set used for prom_trends() examples.
+#' 2008/2009, 2010/2011, 2012/2013, and 2014/2015. Data set used for
+#' prom_trends() examples.
 #'
 #' @format A data frame with 1 row and 5 variables:
 #' \describe{

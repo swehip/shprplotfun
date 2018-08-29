@@ -6,13 +6,14 @@
 \usage{
 bar_plot(df, x_var, fill_var = NULL, y_var = NULL, style = c("stack",
   "fill", "dodge")[1], group_by_x_var = TRUE, y_percent = TRUE,
-  y_lim = NULL, y_breaks = 2000, x_breaks = NULL, y_breaks_end = 1e+05,
-  title = NULL, subtitle = NULL, title_size = 14, subtitle_size = 10,
-  title_margin = 1, y_lab = NULL, x_lab = NULL,
-  background_color = "moccasin", panel_grid_color = "grey",
-  panel_grid_size = 0.3, contour_line_size = 0.1, axis_size = 0.3,
-  axis_text_angle = 0, text_size = 8, fill_colors = c("#E41A1C",
-  "#377EB8", "#4DAF4A", "#984EA3", "#FF7F00", "#FFFF33", "#A65628", "#F781BF"),
+  y_lim = NULL, y_breaks = 2000, x_breaks = NULL,
+  y_breaks_end = 1e+05, title = NULL, subtitle = NULL,
+  title_size = 14, subtitle_size = 10, title_margin = 1,
+  y_lab = NULL, x_lab = NULL, background_color = "moccasin",
+  panel_grid_color = "grey", panel_grid_size = 0.3,
+  contour_line_size = 0.1, axis_size = 0.3, axis_text_angle = 0,
+  text_size = 8, fill_colors = c("#E41A1C", "#377EB8", "#4DAF4A",
+  "#984EA3", "#FF7F00", "#FFFF33", "#A65628", "#F781BF"),
   legend_pos = "bottom", legend_labels = waiver(),
   label_breaks = waiver(), legend_background = "transparent",
   legend_row = NULL, legend_col = NULL)
@@ -20,23 +21,29 @@ bar_plot(df, x_var, fill_var = NULL, y_var = NULL, style = c("stack",
 \arguments{
 \item{df}{Data frame.}
 
-\item{x_var}{Variable for x axis, use string name. Recommended that x_var is in character in df.}
+\item{x_var}{Variable for x axis, use string name. Recommended that x_var is
+in character in df.}
 
-\item{fill_var}{Variable for the different colors in bars, use string name. Use NULL if only one color for bars.}
+\item{fill_var}{Variable for the different colors in bars, use string name.
+Use NULL if only one color for bars.}
 
 \item{y_var}{Variable for y axis, if NULL, count is used.}
 
-\item{style}{3 different styles of bar plots, stack, fill, or dodge. fill requires y_percent  TRUE.}
+\item{style}{3 different styles of bar plots, stack, fill, or dodge. fill
+requires y_percent  TRUE.}
 
-\item{group_by_x_var}{Only relevant for style dodge. Boolean indicating if percentages should be for x_var or fill_var.}
+\item{group_by_x_var}{Only relevant for style dodge. Boolean indicating if
+percentages should be for x_var or fill_var.}
 
-\item{y_percent}{If TRUE, y axis is in percent form. Otherwise in count form.}
+\item{y_percent}{If TRUE, y axis is in percent form. Otherwise in count
+form.}
 
 \item{y_lim}{Limit on y axis.}
 
 \item{y_breaks}{Length between each break on y axis.}
 
-\item{y_breaks_end}{Break end, default for 100000. Works for all count values below that.}
+\item{y_breaks_end}{Break end, default for 100000. Works for all count
+values below that.}
 
 \item{title}{Plot title, NULL if no title.}
 
@@ -46,7 +53,8 @@ bar_plot(df, x_var, fill_var = NULL, y_var = NULL, style = c("stack",
 
 \item{subtitle_size}{Text size of subtitle in pt.}
 
-\item{title_margin}{Distance between subtitle and title in pt. If no subtitle, title_margin  0.5*title_size.}
+\item{title_margin}{Distance between subtitle and title in pt. If no
+subtitle, title_margin  0.5*title_size.}
 
 \item{y_lab}{Y-axis label, use NULL for no label.}
 
@@ -56,19 +64,22 @@ bar_plot(df, x_var, fill_var = NULL, y_var = NULL, style = c("stack",
 
 \item{panel_grid_color}{Color of the panel grid lines.}
 
-\item{panel_grid_size}{Size of the panel grid lines in plot, useful to change if large dpi!}
+\item{panel_grid_size}{Size of the panel grid lines in plot, useful to
+change if large dpi!}
 
 \item{contour_line_size}{Contour around bars size.}
 
 \item{axis_size}{Size of the axis lines.}
 
-\item{axis_text_angle}{Angle of the tick texts, 45 is recommended for many x levels.}
+\item{axis_text_angle}{Angle of the tick texts, 45 is recommended for many x
+levels.}
 
 \item{text_size}{Size of the text in pt.}
 
 \item{fill_colors}{Color of the different categories in fill_var.}
 
-\item{legend_pos}{Position of the legend in plot, if c(1,1), c(1,0) etc, legend inside plot.}
+\item{legend_pos}{Position of the legend in plot, if c(1,1), c(1,0) etc,
+legend inside plot.}
 
 \item{legend_labels}{Label for each legend key.}
 
@@ -90,26 +101,34 @@ Plot a bar plot using ggplot2.
 library(ggplot2)
 library(dplyr)
 # Style stack
-bar_plot(df = diamonds, x_var = 'color', fill_var = 'cut', y_breaks = 2)
-bar_plot(df = diamonds, x_var = 'color', fill_var = 'cut', y_percent = FALSE, y_breaks = 2000)
+bar_plot(df = diamonds, x_var = 'color',
+fill_var = 'cut', y_breaks = 2)
+bar_plot(df = diamonds, x_var = 'color',
+fill_var = 'cut', y_percent = FALSE, y_breaks = 2000)
 
 # Style stack with y variable included
 df <- diamonds \%>\% group_by_('color', 'cut') \%>\% summarise(y = n())
-bar_plot(df = df, x_var = 'color', fill_var = 'cut', y_var = 'y', y_breaks = 2)
+bar_plot(df = df, x_var = 'color',
+  fill_var = 'cut', y_var = 'y', y_breaks = 2)
 
 # Style fill
-bar_plot(df = diamonds, x_var = 'color', fill_var = 'cut', y_breaks = 10, style = 'fill')
+bar_plot(df = diamonds, x_var = 'color', fill_var = 'cut',
+y_breaks = 10, style = 'fill')
 
 # Style dodge grouped by x_var (color in this case)
-bar_plot(df = diamonds, x_var = 'color', fill_var = 'cut', style = 'dodge', y_breaks = 10)
-bar_plot(df = diamonds, x_var = 'color', fill_var = 'cut', style = 'dodge', y_percent = FALSE, y_breaks = 2000)
+bar_plot(df = diamonds, x_var = 'color', fill_var = 'cut',
+style = 'dodge', y_breaks = 10)
+bar_plot(df = diamonds, x_var = 'color', fill_var = 'cut',
+style = 'dodge', y_percent = FALSE, y_breaks = 2000)
 
 # Style dodge grouped by fill_var (cut in this case)
-bar_plot(df = diamonds, x_var = 'color', fill_var = 'cut', style = 'dodge', group_by_x_var = FALSE, y_breaks = 10)
+bar_plot(df = diamonds, x_var = 'color', fill_var = 'cut',
+style = 'dodge', group_by_x_var = FALSE, y_breaks = 10)
 
-# Since bar_plot() returns ggplot object, it is possible to add more features.
+# Since bar_plot() returns ggplot object, it is possible to add more features
 # Here we zoom the plot using coord_cartesian():
 df <- dplyr::filter(diamonds, clarity \%in\% c('SI1', 'SI2', 'VS2'))
-bar_plot(df = df, x_var = 'clarity', style = 'dodge', y_percent = FALSE, y_breaks = 2000) +
+bar_plot(df = df, x_var = 'clarity',
+style = 'dodge', y_percent = FALSE, y_breaks = 2000) +
   coord_cartesian(ylim = c(8000, 14000))
 }

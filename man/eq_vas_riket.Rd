@@ -17,6 +17,7 @@ eq_vas_riket
 }
 \description{
 A dataset containing Swedish average EQ VAS for four year periods:
-2008/2009, 2010/2011, 2012/2013, and 2014/2015. Data set used for prom_trends() examples.
+2008/2009, 2010/2011, 2012/2013, and 2014/2015. Data set used for
+prom_trends() examples.
 }
 \keyword{datasets}

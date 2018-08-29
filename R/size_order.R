@@ -13,16 +13,13 @@
 #' in_size_order <- size_order(diamonds$cut, 2, "Others")
 #' table(in_size_order)
 #' @export
-
-size_order <- function(x, other_count = NULL, other_level = "Övriga"){
-
+size_order <- function(x, other_count = NULL, other_level = "Övriga") {
   ordning <- names(sort(table(x), decreasing = TRUE))
   x <- ordered(x, levels = ordning)
 
-  if(!is.null(other_count)){
+  if (!is.null(other_count)) {
     n_levels <- length(levels(x)) - other_count
     levels(x) <- c(levels(x)[1:n_levels], rep(other_level, other_count))
   }
-
-  return(x)
+  x
 }

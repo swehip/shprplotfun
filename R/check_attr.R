@@ -5,13 +5,10 @@
 #' @return TRUE or FALSE
 #' @examples
 #' df <- data.frame(cars = 1:3)
-#' attr(df$cars, "map") <- data.frame(levels = 1:3, labels = c("Volvo", "Saab", "Opel"))
+#' attr(df$cars, "map") <-
+#' data.frame(levels = 1:3, labels = c("Volvo", "Saab", "Opel"))
 #' check_attr(df$cars)
 #' @export
-
-
 check_attr <- function(x){
-
-  return(!is.null(attr(x, "map")))
-
+  !is.null(attr(x, "map"))
 }

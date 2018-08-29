@@ -5,12 +5,12 @@
 \title{Trend plot function}
 \usage{
 trend_plot(df, x_var, y_var, y_breaks = 5, y_lim = c(54.9, 65.1),
-  x_breaks = 5, y_lab = "Procent kvinnor", x_lab = "år", title = NULL,
-  subtitle = NULL, title_size = 14, subtitle_size = 12,
-  line_color = "#377EB8", line_size = 1, point_size = 1,
-  background_color = "moccasin", panel_grid_color = "grey",
-  panel_grid_size = 0.3, axis_size = 0.3, axis_text_angle = 0,
-  text_size = 8)
+  x_breaks = 5, y_lab = "Procent kvinnor", x_lab = "Ã¥r",
+  title = NULL, subtitle = NULL, title_size = 14,
+  subtitle_size = 12, line_color = "#377EB8", line_size = 1,
+  point_size = 1, background_color = "moccasin",
+  panel_grid_color = "grey", panel_grid_size = 0.3, axis_size = 0.3,
+  axis_text_angle = 0, text_size = 8)
 }
 \arguments{
 \item{df}{Data frame.}
@@ -47,11 +47,13 @@ trend_plot(df, x_var, y_var, y_breaks = 5, y_lim = c(54.9, 65.1),
 
 \item{panel_grid_color}{Color of the panel grid lines.}
 
-\item{panel_grid_size}{Size of the panel grid lines in plot and contour lines around bars, useful to change if large dpi!}
+\item{panel_grid_size}{Size of the panel grid lines in plot and contour
+lines around bars, useful to change if large dpi!}
 
 \item{axis_size}{Size of the axis lines.}
 
-\item{axis_text_angle}{Angle of the tick texts, 45 is recommended for many x levels.}
+\item{axis_text_angle}{Angle of the tick texts, 45 is recommended for many x
+levels.}
 
 \item{text_size}{Size of the text in pt.}
 }
@@ -59,7 +61,8 @@ trend_plot(df, x_var, y_var, y_breaks = 5, y_lim = c(54.9, 65.1),
 Ggplot object containg trend plot.
 }
 \description{
-Simple function to show trend in percent (y_var) between different years (x_var) using geom_smooth (ggplot2).
+Simple function to show trend in percent (y_var) between different years
+(x_var) using geom_smooth (ggplot2).
 }
 \examples{
 

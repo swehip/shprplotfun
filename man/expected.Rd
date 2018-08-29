@@ -11,21 +11,10 @@ expected(outcome, data1, data2, data3, data4, year_period1 = "2008_2009",
 \arguments{
 \item{outcome}{Linear model outcome variable.}
 
-\item{data1}{Data frame containing data for the first year period.}
+\item{data1, data2, data3, data4}{Data frames containing data for the
+first/second/third/forth year period.}
 
-\item{data2}{Data frame containing data for the second year period.}
-
-\item{data3}{Data frame containing data for the third year period.}
-
-\item{data4}{Data frame containing data for the fourth year period.}
-
-\item{year_period1}{First year period.}
-
-\item{year_period2}{Second year period.}
-
-\item{year_period3}{Third year period.}
-
-\item{year_period4}{Fourth year period.}
+\item{year_period1, year_period1, year_period1, year_period1}{First/second/third/fourth year period.}
 
 \item{mean_group}{Group to take mean on.}
 }
@@ -33,35 +22,17 @@ expected(outcome, data1, data2, data3, data4, year_period1 = "2008_2009",
 Data frame containing expected PROM for four year periods.
 }
 \description{
-Expected PROM using linear model. Used to create expected data frame which is used in prom_trends().
+Expected PROM using linear model. Used to create expected data frame which is
+used in prom_trends().
 }
 \details{
-Following variables MUST be included in the data set to be able to use the function:
+Following variables MUST be included in the data set to be able to use the
+function:
 
-PREP_HipPain
+PREP_HipPain, PREP_VASHealth, eq5d0swe, eq10, eq20, eq30, eq40, eq50,
+P_DiaGrp, P_Gender, P_Age, PREP_Charnley
 
-PREP_VASHealth
-
-eq5d0swe
-
-eq10
-
-eq20
-
-eq30
-
-eq40
-
-eq50
-
-P_DiaGrp
-
-P_Gender
-
-P_Age
-
-PREP_Charnley
-
-where eq10, eq20, eq30, eq40 and eq50 are the five numbers extracted using eq5d_3l() and eq5d0swe is obtained using
-eq10, eq20, eq30, eq40, and eq50 in eqindSwed().
+where eq10, eq20, eq30, eq40 and eq50 are the five numbers extracted using
+eq5d_3l() and eq5d0swe is obtained using eq10, eq20, eq30, eq40, and eq50 in
+eqindSwed().
 }

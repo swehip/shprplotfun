@@ -4,7 +4,8 @@
 \name{swe_allpoints}
 \alias{swe_allpoints}
 \title{Sweden map data set}
-\format{A data frame with 407898 rows and 5 variables. The negligible variables with just one type of observation
+\format{A data frame with 407898 rows and 5 variables.
+The negligible variables with just one type of observation
 have been removed from the original data set:
 \describe{
   \item{long}{longitude, numeric}

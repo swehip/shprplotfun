@@ -14,12 +14,6 @@
 #'                  vars(starts_with("cars")),
 #'                  filter_cens, y = df$condition)
 #' @export
-
-
 filter_cens <- function(x, y){
-
-  x <- case_when(!is.na(y) ~ x)
-
-  return(x)
-
+  case_when(!is.na(y) ~ x)
 }

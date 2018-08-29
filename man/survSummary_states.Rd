@@ -15,5 +15,6 @@ survSummary_states(surv_object, times)
 Data frame summarizing surv_object.
 }
 \description{
-Summary of a survfit object with more than one model from survival package. If there is not enough follow up time the latest results is extrapolated.
+Summary of a survfit object with more than one model from survival package.
+If there is not enough follow up time the latest results is extrapolated.
 }

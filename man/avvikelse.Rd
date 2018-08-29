@@ -18,37 +18,20 @@ avvikelse(prom_dat, out, preop = NULL, postop, decimals = 2)
 \item{decimals}{Number of decimals.}
 }
 \value{
-Data frame including hospitals, number of patients, preoperative values (if preop not NULL), postoperative values, and devation.
+Data frame including hospitals, number of patients, preoperative
+  values (if preop not NULL), postoperative values, and devation.
 }
 \description{
-Calculates number of patients, preoperative values, postoperative values, and devation for each hospital. Used to make some tables in the annual report.
+Calculates number of patients, preoperative values, postoperative values, and
+devation for each hospital. Used to make some tables in the annual report.
 }
 \details{
-Following variables MUST be included in the data set to be able to use the function (used to calculate deviation):
+The following variables MUST be included in the data set to be able to use the
+function (used to calculate deviation):
 
-PREP_HipPain
+PREP_HipPain, PREP_VASHealth, PREP_EQ5D3Lindex, eq10, eq20,eq30, eq40, eq50
+P_DiaGrp, P_Gender, P_Age, PREP_Charnley
 
-PREP_VASHealth
-
-PREP_EQ5D3Lindex
-
-eq10
-
-eq20
-
-eq30
-
-eq40
-
-eq50
-
-P_DiaGrp
-
-P_Gender
-
-P_Age
-
-PREP_Charnley
-
-where eq10, eq20, eq30, eq40 and eq50 are the five numbers extracted using eq5d_3l().
+where eq10, eq20, eq30, eq40 and eq50 are the five numbers extracted using
+eq5d_3l().
 }

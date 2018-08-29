@@ -11,7 +11,8 @@ compass(df, riket_name = "Riket", ncol = 6, riket_color = "#D95F02",
 \arguments{
 \item{df}{Data frame.}
 
-\item{riket_name}{Character to find what row is Swedish average, usually named "Riket".}
+\item{riket_name}{Character to find what row is Swedish average, usually
+named "Riket".}
 
 \item{ncol}{Number of plots on each row.}
 
@@ -19,15 +20,19 @@ compass(df, riket_name = "Riket", ncol = 6, riket_color = "#D95F02",
 
 \item{hosp_color}{Color of hospital polygon.}
 
-\item{alpha_riket}{Modify color transparency for Swedish average color. Use < 1 if colors are to be mixed.}
+\item{alpha_riket}{Modify color transparency for Swedish average color. Use <
+1 if colors are to be mixed.}
 
-\item{alpha_hosp}{Modify color transparency for hospital color. Use < 1 if colors are to be mixed.}
+\item{alpha_hosp}{Modify color transparency for hospital color. Use < 1 if
+colors are to be mixed.}
 
-\item{titles}{Character vector containing compass titles. If long titles, use '\n' to end line!}
+\item{titles}{Character vector containing compass titles. If long titles,
+use '\n' to end line!}
 
 \item{title_size}{Text size of title in pt.}
 
-\item{line_size}{Size of the lines in the choord, useful to change if large dpi!}
+\item{line_size}{Size of the lines in the choord, useful to change if large
+dpi!}
 }
 \value{
 Ggplot object containing plot of compass or many compasses.
