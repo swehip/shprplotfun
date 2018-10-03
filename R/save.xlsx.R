@@ -14,7 +14,7 @@ save.xlsx <- function(file, ..., row_names = FALSE, col_names = TRUE) {
     nobjects <- length(objects)
     for (i in 1:nobjects) {
       if (i == 1)
-        write.xlsx(
+        xlsx::write.xlsx(
           objects[[i]],
           file,
           sheetName = objnames[i],
@@ -22,7 +22,7 @@ save.xlsx <- function(file, ..., row_names = FALSE, col_names = TRUE) {
           col.names = col_names
         )
       else
-        write.xlsx(
+        xlsx::write.xlsx(
           objects[[i]],
           file,
           sheetName = objnames[i],
