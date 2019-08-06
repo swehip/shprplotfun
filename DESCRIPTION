@@ -13,8 +13,7 @@ Imports:
   dplyr, 
   gridExtra, 
   mapproj,
-  haven
-Suggests:
+  haven,
   writexl
 LazyData: true
 RoxygenNote: 6.1.1

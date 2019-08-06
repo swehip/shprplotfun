@@ -1,6 +1,6 @@
 #' Old xlsx saver
 #'
-#' Used to save xlsx files.
+#' Used to save xlsx files. Please use save_xlsx with package writexl instead, it does not require Java.
 #' @param file Filename.
 #' @param ... Data frames or matrices, where each data frame will be saved into
 #'   one sheet.
