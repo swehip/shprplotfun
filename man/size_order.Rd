@@ -4,7 +4,7 @@
 \alias{size_order}
 \title{Make an ordered factor with most important level first}
 \usage{
-size_order(x, other_count = NULL, other_level = "Ã–vriga")
+size_order(x, other_count = NULL, other_level = "Övriga")
 }
 \arguments{
 \item{x}{Vector}

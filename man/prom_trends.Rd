@@ -6,10 +6,10 @@
 \usage{
 prom_trends(eq_vas_exp, eq_vas_obs, eq_vas_riket, pain_exp, pain_obs,
   pain_riket, satis_exp, satis_obs, satis_riket, riket_name = "Riket",
-  y_labs = c("EQ VAS", "SmÃ¤rt VAS", "TillfredstÃ¤llelse"),
+  y_labs = c("EQ VAS", "Smärt VAS", "Tillfredställelse"),
   y_breaks = c(5, 5, 5), year = c("2008/09", "2010/11", "2012/13",
   "2014/15"), subset = 1, text_size = 8,
-  legend_labels = c("FÃ¶rvÃ¤ntat", "Observerat", "Riket"),
+  legend_labels = c("Förväntat", "Observerat", "Riket"),
   line_colors = c("#377EB8", "#E41A1C", "black"),
   background_color = "moccasin", panel_grid_color = "grey",
   panel_grid_size = 0.3, axis_size = 0.3, line_size = 0.5,

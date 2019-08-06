@@ -7,7 +7,7 @@
 compass_riket(df, riket_name = "Riket", axis_titles = names(df)[-1],
   poly_color = "#D95F02", color_alpha = 0.6,
   title = "Kvalitetsindikatorer",
-  subtitle = "vÃ¤rdekompass - riksgenomsnitt", title_size = 12,
+  subtitle = "värdekompass - riksgenomsnitt", title_size = 12,
   subtitle_size = 8, axis_text_size = 8, line_size = 0.1,
   axis_text_position = 1, v_just = "outward", h_just = "middle")
 }

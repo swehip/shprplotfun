@@ -5,7 +5,7 @@
 \title{Trend plot function}
 \usage{
 trend_plot(df, x_var, y_var, y_breaks = 5, y_lim = c(54.9, 65.1),
-  x_breaks = 5, y_lab = "Procent kvinnor", x_lab = "Ã¥r",
+  x_breaks = 5, y_lab = "Procent kvinnor", x_lab = "år",
   title = NULL, subtitle = NULL, title_size = 14,
   subtitle_size = 12, line_color = "#377EB8", line_size = 1,
   point_size = 1, background_color = "moccasin",

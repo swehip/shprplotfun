@@ -12,11 +12,12 @@ Imports:
   ggplot2, 
   dplyr, 
   gridExtra, 
-  xlsx, 
   mapproj,
   haven
+Suggests:
+  writexl
 LazyData: true
-RoxygenNote: 6.1.0.9000
+RoxygenNote: 6.1.1
 URL: https://www.github.com/swehip/shprplotfun
 BugReports: https://github.com/swehip/shprplotfun/issues
 License: MIT + file LICENSE

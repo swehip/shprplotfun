@@ -6,15 +6,15 @@
 \usage{
 bar_plot(df, x_var, fill_var = NULL, y_var = NULL, style = c("stack",
   "fill", "dodge")[1], group_by_x_var = TRUE, y_percent = TRUE,
-  y_lim = NULL, y_breaks = 2000, x_breaks = NULL,
-  y_breaks_end = 1e+05, title = NULL, subtitle = NULL,
-  title_size = 14, subtitle_size = 10, title_margin = 1,
-  y_lab = NULL, x_lab = NULL, background_color = "moccasin",
-  panel_grid_color = "grey", panel_grid_size = 0.3,
-  contour_line_size = 0.1, axis_size = 0.3, axis_text_angle = 0,
-  text_size = 8, fill_colors = c("#E41A1C", "#377EB8", "#4DAF4A",
-  "#984EA3", "#FF7F00", "#FFFF33", "#A65628", "#F781BF"),
-  legend_pos = "bottom", legend_labels = waiver(),
+  percent_accuracy = 1, y_lim = NULL, y_breaks = 2000,
+  x_breaks = NULL, y_breaks_end = 1e+05, title = NULL,
+  subtitle = NULL, title_size = 14, subtitle_size = 10,
+  title_margin = 1, y_lab = NULL, x_lab = NULL,
+  background_color = "moccasin", panel_grid_color = "grey",
+  panel_grid_size = 0.3, contour_line_size = 0.1, axis_size = 0.3,
+  axis_text_angle = 0, text_size = 8, fill_colors = c("#E41A1C",
+  "#377EB8", "#4DAF4A", "#984EA3", "#FF7F00", "#FFFF33", "#A65628",
+  "#F781BF"), legend_pos = "bottom", legend_labels = waiver(),
   label_breaks = waiver(), legend_background = "transparent",
   legend_row = NULL, legend_col = NULL)
 }
@@ -37,6 +37,8 @@ percentages should be for x_var or fill_var.}
 
 \item{y_percent}{If TRUE, y axis is in percent form. Otherwise in count
 form.}
+
+\item{percent_accuracy}{Set accuracy for scales::percent_format. See help. Default 1.}
 
 \item{y_lim}{Limit on y axis.}
 
