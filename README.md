@@ -14,3 +14,9 @@ You can install the latest version of shprplotfun with:
 # install.packages("devtools")
 devtools::install_github("swehip/shprplotfun")
 ```
+
+Sometimes it occurs errors with the documention. Then run to restart the session
+
+``` r
+.rs.restartR()
+```
