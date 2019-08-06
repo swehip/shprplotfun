@@ -13,6 +13,7 @@
 #'   percentages should be for x_var or fill_var.
 #' @param y_percent  If TRUE, y axis is in percent form. Otherwise in count
 #'   form.
+#' @param percent_accuracy Set accuracy for scales::percent_format. See help. Default 1.
 #' @param y_lim  Limit on y axis.
 #' @param y_breaks  Length between each break on y axis.
 #' @param y_breaks_end  Break end, default for 100000. Works for all count
@@ -86,6 +87,7 @@ bar_plot <-
            style = c("stack", "fill", "dodge")[1],
            group_by_x_var = TRUE,
            y_percent = TRUE,
+           percent_format = 1,
            y_lim = NULL,
            y_breaks = 2000,
            x_breaks = NULL,
@@ -216,7 +218,7 @@ bar_plot <-
         axis.text = element_text(colour = "black", size = text_size),
         axis.text.x = element_text(angle = axis_text_angle),
         axis.title = element_text(size = text_size),
-        legend.text = element_text(size = text_size),
+        legend.text = element_text(size = text_size, margin = margin(l = text_size / 2)),
         legend.background = element_rect(fill = legend_background),
         legend.title = element_blank(),
         legend.key.height = unit(text_size, "pt"),
@@ -244,7 +246,7 @@ bar_plot <-
             size = contour_line_size
           ) +
           scale_y_continuous(
-            labels = scales::percent,
+            labels = scales::percent_format(accuracy = percent_accuracy),
             breaks = seq(0, 1, by = y_breaks),
             limits = y_lim
           )
@@ -261,7 +263,7 @@ bar_plot <-
             size = contour_line_size
           ) +
           scale_y_continuous(
-            labels = scales::percent,
+            labels = scales::percent_format(accuracy = percent_accuracy),
             breaks = seq(0, 1, by = y_breaks),
             limits = y_lim
           )
@@ -277,7 +279,7 @@ bar_plot <-
             size = contour_line_size
           ) +
           scale_y_continuous(
-            labels = scales::percent,
+            labels = scales::percent_format(accuracy = percent_accuracy),
             breaks = seq(0, 1, by = y_breaks),
             limits = y_lim
           )
