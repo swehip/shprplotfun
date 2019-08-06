@@ -87,7 +87,7 @@ bar_plot <-
            style = c("stack", "fill", "dodge")[1],
            group_by_x_var = TRUE,
            y_percent = TRUE,
-           percent_format = 1,
+           percent_accuracy = 1,
            y_lim = NULL,
            y_breaks = 2000,
            x_breaks = NULL,
