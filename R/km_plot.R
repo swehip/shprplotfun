@@ -11,6 +11,7 @@
 #' @param one_level  Boolean indicating if there is only one level in the
 #'   strata.
 #' @param y_lim  Limit on y-axis.
+#' @param percent_accuracy Set accuracy for scales::percent_format. See help. Default 1.
 #' @param y_breaks  Length between each break on y-axis.
 #' @param x_lim  Limit on x-axis.
 #' @param x_breaks  Length between each break on x-axis.
@@ -62,6 +63,7 @@ km_plot <-
            first_point = 1,
            one_level = FALSE,
            y_lim = NULL,
+           percent_accuracy = 1,
            y_breaks = 5,
            x_lim = NULL,
            x_breaks = 1,
@@ -265,7 +267,7 @@ km_plot <-
       scale_y_continuous(
         breaks = seq(y_lim[1], y_lim[2], by = y_breaks),
         limits = y_lim,
-        labels = scales::percent
+        labels = scales::percent_format(accuracy = percent_accuracy)
       ) +
       scale_x_continuous(breaks = seq(x_lim[1], x_lim[2], by = x_breaks),
                          limits = x_lim) +
@@ -292,7 +294,7 @@ km_plot <-
         ),
         axis.text = element_text(colour = "black", size = text_size),
         axis.title = element_text(size = text_size),
-        legend.text = element_text(size = text_size),
+        legend.text = element_text(size = text_size, margin = margin(l = text_size/2)),
         legend.position = legend_pos,
         legend.justification = legend_pos,
         legend.background = element_rect(fill = "transparent"),
