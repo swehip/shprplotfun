@@ -295,7 +295,7 @@ km_plot <-
         axis.text = element_text(colour = "black", size = text_size),
         axis.title = element_text(size = text_size),
         legend.text = element_text(size = text_size, margin = margin(l = text_size/2,
-                                                                     r = test_size/2)),
+                                                                     r = text_size/2)),
         legend.position = legend_pos,
         legend.justification = legend_pos,
         legend.background = element_rect(fill = "transparent"),

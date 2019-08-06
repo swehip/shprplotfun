@@ -219,7 +219,7 @@ bar_plot <-
         axis.text.x = element_text(angle = axis_text_angle),
         axis.title = element_text(size = text_size),
         legend.text = element_text(size = text_size, margin = margin(l = text_size / 2,
-                                                                     r = test_size / 2)),
+                                                                     r = text_size / 2)),
         legend.background = element_rect(fill = legend_background),
         legend.title = element_blank(),
         legend.key.height = unit(text_size, "pt"),
