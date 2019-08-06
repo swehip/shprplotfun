@@ -56,6 +56,8 @@ lines around bars, useful to change if large dpi!}
 levels.}
 
 \item{text_size}{Size of the text in pt.}
+
+\item{percent_accuracy}{Set accuracy for scales::percent_format. See help. Default 1.}
 }
 \value{
 Ggplot object containg trend plot.

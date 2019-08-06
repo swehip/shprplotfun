@@ -7,6 +7,7 @@
 #' @param y_var  Y variable.
 #' @param y_breaks  Length between each break on y-axis.
 #' @param y_lim  Limit on y-axis.
+#' @param percent_accuracy Set accuracy for scales::percent_format. See help. Default 1.
 #' @param x_breaks  Length between each break on x-axis.
 #' @param y_lab  Y-axis label, use NULL for no label.
 #' @param x_lab  X-axis label, use NULL for no label.
@@ -71,7 +72,7 @@ trend_plot <-
     xlab(x_lab) +
     ylab(y_lab) +
     scale_y_continuous(
-      label = scales::percent,
+      label = scales::percent_format(accuracy = percent_accuracy),
       breaks = seq(0, 1, by = y_breaks),
       limits = y_lim
     ) +

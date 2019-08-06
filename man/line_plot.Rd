@@ -5,9 +5,9 @@
 \title{Line plot function}
 \usage{
 line_plot(df, x_var, color_var = NULL, y_var = NULL,
-  group_by_x_var = TRUE, y_percent = TRUE, y_lim = NULL,
-  y_breaks = 2000, y_breaks_end = 1e+05, line_size = 1,
-  title = NULL, subtitle = NULL, title_size = 14,
+  group_by_x_var = TRUE, y_percent = TRUE, percent_accuracy = 1,
+  y_lim = NULL, y_breaks = 2000, y_breaks_end = 1e+05,
+  line_size = 1, title = NULL, subtitle = NULL, title_size = 14,
   subtitle_size = 10, title_margin = 1, y_lab = NULL, x_lab = NULL,
   background_color = "moccasin", panel_grid_color = "grey",
   panel_grid_size = 0.3, axis_size = 0.3, axis_text_angle = 0,
@@ -33,6 +33,8 @@ or color_var.}
 
 \item{y_percent}{If TRUE, y-axis is in percent form. Otherwise in count
 form.}
+
+\item{percent_accuracy}{Set accuracy for scales::percent_format. See help. Default 1.}
 
 \item{y_lim}{Limit on y-axis.}
 
