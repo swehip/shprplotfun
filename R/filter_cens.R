@@ -15,5 +15,5 @@
 #'                  filter_cens, y = df$condition)
 #' @export
 filter_cens <- function(x, y){
-  case_when(!is.na(y) ~ x)
+  dplyr::case_when(!is.na(y) ~ x)
 }

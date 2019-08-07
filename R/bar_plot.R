@@ -1,50 +1,54 @@
 #' Bar plot function
 #'
 #' Plot a bar plot using ggplot2.
-#' @param df  Data frame.
-#' @param x_var  Variable for x axis, use string name. Recommended that x_var is
-#'   in character in df.
-#' @param fill_var  Variable for the different colors in bars, use string name.
-#'   Use NULL if only one color for bars.
-#' @param y_var  Variable for y axis, if NULL, count is used.
-#' @param style  3 different styles of bar plots, stack, fill, or dodge. fill
-#'   requires y_percent  TRUE.
-#' @param group_by_x_var  Only relevant for style dodge. Boolean indicating if
-#'   percentages should be for x_var or fill_var.
-#' @param y_percent  If TRUE, y axis is in percent form. Otherwise in count
-#'   form.
-#' @param percent_accuracy Set accuracy for scales::percent_format. See help. Default 1.
-#' @param y_lim  Limit on y axis.
-#' @param y_breaks  Length between each break on y axis.
-#' @param y_breaks_end  Break end, default for 100000. Works for all count
-#'   values below that.
-#' @param title  Plot title, NULL if no title.
-#' @param subtitle  Small text under title, NULL if no subtitle.
-#' @param title_size  Text size of title in pt.
-#' @param subtitle_size  Text size of subtitle in pt.
-#' @param title_margin  Distance between subtitle and title in pt. If no
-#'   subtitle, title_margin  0.5*title_size.
-#' @param y_lab  Y-axis label, use NULL for no label.
-#' @param x_lab  X-axis label, use NULL for no label.
-#' @param background_color  Color of the panel background.
-#' @param panel_grid_color  Color of the panel grid lines.
-#' @param panel_grid_size  Size of the panel grid lines in plot, useful to
-#'   change if large dpi!
+#'
+#' @param df                 Data frame.
+#' @param x_var              Variable for x axis, use string name.
+#'                           Recommended that \code{x_var} is in character in df.
+#' @param fill_var           Variable for the different colors in bars,
+#'                             use string name.
+#'                             Use NULL if only one color for bars.
+#' @param y_var              Variable for y axis, if NULL, count is used.
+#' @param style              3 different styles of bar plots,
+#'                            "stack", "fill", or "dodge".
+#'                            fill requires y_percent  TRUE.
+#' @param group_by_x_var     Only relevant for style dodge. Boolean indicating
+#'                             if percentages should be for x_var or fill_var.
+#' @param y_percent          If TRUE, y axis is in percent form.
+#'                             Otherwise in count form.
+#' @param y_lim              Limit on y axis.
+#' @param x_breaks,y_breaks  Length between each break on x/y axis.
+#' @param y_breaks_end       Break end, default for 100000. Works for all count
+#'                           values below that.
+#' @param title              Plot title, NULL if no title.
+#' @param subtitle           Small text under title, NULL if no subtitle.
+#' @param title_size         Text size of title in pt.
+#' @param subtitle_size      Text size of subtitle in pt.
+#' @param title_margin       Distance between subtitle and title in pt. If no
+#'                           subtitle, title_margin  0.5*title_size.
+#' @param y_lab              Y-axis label, use NULL for no label.
+#' @param x_lab              X-axis label, use NULL for no label.
+#' @param background_color   Color of the panel background.
+#' @param panel_grid_color   Color of the panel grid lines.
+#' @param panel_grid_size    Size of the panel grid lines in plot, useful to
+#'                             change if large dpi!
 #' @param contour_line_size  Contour around bars size.
-#' @param axis_size  Size of the axis lines.
-#' @param axis_text_angle  Angle of the tick texts, 45 is recommended for many x
-#'   levels.
-#' @param text_size  Size of the text in pt.
-#' @param fill_colors  Color of the different categories in fill_var.
-#' @param legend_pos  Position of the legend in plot, if c(1,1), c(1,0) etc,
-#'   legend inside plot.
-#' @param legend_labels  Label for each legend key.
-#' @param label_breaks  Order of the legend keys.
+#' @param axis_size          Size of the axis lines.
+#' @param axis_text_angle    Angle of the tick texts, 45 is recommended for
+#'                             many x levels.
+#' @param text_size          Size of the text in pt.
+#' @param fill_colors        Color of the different categories in fill_var.
+#' @param legend_pos         Position of the legend in plot,
+#'                           if c(1,1), c(1,0) etc, legend inside plot.
+#' @param legend_labels      Label for each legend key.
+#' @param label_breaks       Order of the legend keys.
 #' @param legend_background  Color of the legend background.
-#' @param legend_row  How many rows for the legends.
-#' @param legend_col  How many columns for the legends.
-#' @return Ggplot object containing bar plot.
+#' @param legend_row         How many rows for the legends.
+#' @param legend_col         How many columns for the legends.
+#'
+#' @return                   ggplot object containing bar plot.
 #' @examples
+#'
 #' library(ggplot2)
 #' library(dplyr)
 #' # Style stack
@@ -78,6 +82,7 @@
 #' bar_plot(df = df, x_var = 'clarity',
 #' style = 'dodge', y_percent = FALSE, y_breaks = 2000) +
 #'   coord_cartesian(ylim = c(8000, 14000))
+#'
 #' @export
 bar_plot <-
   function(df,
@@ -87,7 +92,6 @@ bar_plot <-
            style = c("stack", "fill", "dodge")[1],
            group_by_x_var = TRUE,
            y_percent = TRUE,
-           percent_accuracy = 1,
            y_lim = NULL,
            y_breaks = 2000,
            x_breaks = NULL,
@@ -117,8 +121,8 @@ bar_plot <-
              "#F781BF"
            ),
            legend_pos = "bottom",
-           legend_labels = waiver(),
-           label_breaks = waiver(),
+           legend_labels = ggplot2::waiver(),
+           label_breaks = ggplot2::waiver(),
            legend_background = "transparent",
            legend_row = NULL,
            legend_col = NULL) {
@@ -138,10 +142,16 @@ bar_plot <-
         # y2 used for style dodge ----------------------------------------------
 
         if (group_by_x_var) {
-          df <- df %>% group_by_(x_var) %>% mutate(y2 = sum(y))
+          df <-
+            df %>%
+            dplyr::group_by_(x_var) %>%
+            dplyr::mutate_(y2 = ~sum(y))
 
         } else{
-          df <- df %>% group_by_(fill_var) %>% mutate(y2 = sum(y))
+          df <-
+            df %>%
+            dplyr::group_by_(fill_var) %>%
+            dplyr::mutate_(y2 = ~sum(y))
 
         }
       }
@@ -152,7 +162,10 @@ bar_plot <-
       if (!is.character(fill_var)) {
         fill_var <- "fill_var"
         show_legend <- FALSE
-        df <- df %>% group_by_(x_var) %>% summarise(y = n())
+        df <-
+          df %>%
+          dplyr::group_by_(x_var) %>%
+          dplyr::summarise_(y = ~n())
         df$y2 <- 1
       } else{
         # Data transformations -------------------------------------------------
@@ -160,18 +173,18 @@ bar_plot <-
         if (group_by_x_var) {
           df <-
             df %>%
-            group_by_(x_var, fill_var) %>%
-            summarise(y = n()) %>%
-            group_by_(x_var) %>%
-            mutate(y2 = sum(y))
+            dplyr::group_by_(x_var, fill_var) %>%
+            dplyr::summarise_(y = ~n()) %>%
+            dplyr::group_by_(x_var) %>%
+            dplyr::mutate_(y2 = ~sum(y))
 
         } else{
           df <-
             df %>%
-            group_by_(x_var, fill_var) %>%
-            summarise(y = n()) %>%
-            group_by_(fill_var) %>%
-            mutate(y2 = sum(y))
+            dplyr::group_by_(x_var, fill_var) %>%
+            dplyr::summarise_(y = ~n()) %>%
+            dplyr::group_by_(fill_var) %>%
+            dplyr::mutate_(y2 = ~sum(y))
         }
 
       }
@@ -186,45 +199,44 @@ bar_plot <-
       title_margin <- 0.5 * title_size
     }
 
-
-    bars <- ggplot(data = df) +
-      theme_classic() +
-      scale_fill_manual(
+    bars <- ggplot2::ggplot(data = df) +
+      ggplot2::theme_classic() +
+      ggplot2::scale_fill_manual(
         values = fill_colors,
         labels = legend_labels,
         breaks = label_breaks,
-        guide = guide_legend(nrow = legend_row, ncol = legend_col)
+        guide = ggplot2::guide_legend(nrow = legend_row, ncol = legend_col)
       ) +
-      ylab(y_lab) +
-      xlab(x_lab) +
-      ggtitle(title, subtitle = subtitle) +
-      theme(
-        panel.background = element_rect(fill = background_color),
-        panel.grid.major.y =
-          element_line(colour = panel_grid_color, size = panel_grid_size),
-        axis.line = element_line(size = axis_size),
-        axis.ticks = element_line(size = axis_size),
-        plot.title = element_text(
+      ggplot2::ylab(y_lab) +
+      ggplot2::xlab(x_lab) +
+      ggplot2::ggtitle(title, subtitle = subtitle) +
+      ggplot2::theme(
+        panel.background = ggplot2::element_rect(fill = background_color),
+        panel.grid.major.y = ggplot2::element_line(
+          colour = panel_grid_color, size = panel_grid_size),
+        axis.line  = ggplot2::element_line(size = axis_size),
+        axis.ticks = ggplot2::element_line(size = axis_size),
+        plot.title = ggplot2::element_text(
           hjust = 0.5,
           size = title_size,
           colour = "black",
-          margin = margin(b = title_margin)
+          margin = ggplot2::margin(b = title_margin)
         ),
-        plot.subtitle = element_text(
+        plot.subtitle = ggplot2::element_text(
           hjust = 0.5,
           size = subtitle_size,
           colour = "black"
         ),
-        axis.text = element_text(colour = "black", size = text_size),
-        axis.text.x = element_text(angle = axis_text_angle),
-        axis.title = element_text(size = text_size),
-        legend.text = element_text(size = text_size, margin = margin(l = text_size / 2,
-                                                                     r = text_size / 2)),
-        legend.background = element_rect(fill = legend_background),
-        legend.title = element_blank(),
-        legend.key.height = unit(text_size, "pt"),
-        legend.key.width = unit(text_size, "pt"),
-        legend.position = legend_pos,
+        axis.text            =
+          ggplot2::element_text(colour = "black", size = text_size),
+        axis.text.x          = ggplot2::element_text(angle = axis_text_angle),
+        axis.title           = ggplot2::element_text(size = text_size),
+        legend.text          = ggplot2::element_text(size = text_size),
+        legend.background    = ggplot2::element_rect(fill = legend_background),
+        legend.title         = ggplot2::element_blank(),
+        legend.key.height    = ggplot2::unit(text_size, "pt"),
+        legend.key.width     = ggplot2::unit(text_size, "pt"),
+        legend.position      = legend_pos,
         legend.justification = legend_pos
       )
 
@@ -237,50 +249,53 @@ bar_plot <-
 
       if (style == "dodge") {
         bars <-
-          bars + geom_bar(
+          bars +
+          ggplot2::geom_bar(
             width = 0.5,
-            mapping = aes_string(x = x_var, y = "y/y2", fill = fill_var),
+            mapping = ggplot2::aes_string(x = x_var, y = "y/y2", fill = fill_var),
             stat = "identity",
             show.legend = show_legend,
-            position = position_dodge(width = 0.5),
+            position = ggplot2::position_dodge(width = 0.5),
             color = "black",
             size = contour_line_size
           ) +
-          scale_y_continuous(
-            labels = scales::percent_format(accuracy = percent_accuracy),
+          ggplot2::scale_y_continuous(
+            labels = scales::percent,
             breaks = seq(0, 1, by = y_breaks),
             limits = y_lim
           )
 
       } else if (style == "fill") {
         bars <-
-          bars + geom_bar(
+          bars +
+          ggplot2::geom_bar(
             width = 0.5,
-            mapping = aes_string(x = x_var, y = "y/sum(y)", fill = fill_var),
+            mapping = ggplot2::aes_string(x = x_var, y = "y/sum(y)", fill = fill_var),
             stat = "identity",
             show.legend = show_legend,
-            position = position_fill(vjust = 0.5, reverse = TRUE),
+            position = ggplot2::position_fill(vjust = 0.5, reverse = TRUE),
             color = "black",
             size = contour_line_size
           ) +
-          scale_y_continuous(
-            labels = scales::percent_format(accuracy = percent_accuracy),
+          ggplot2::scale_y_continuous(
+            labels = scales::percent,
             breaks = seq(0, 1, by = y_breaks),
             limits = y_lim
           )
       } else{
         bars <-
-          bars + geom_bar(
-            width = 0.5,
-            mapping = aes_string(x = x_var, y = "y/sum(y)", fill = fill_var),
-            stat = "identity",
+          bars +
+          ggplot2::geom_bar(
+            width       = 0.5,
+            mapping     = ggplot2::aes_string(x = x_var, y = "y/sum(y)", fill = fill_var),
+            stat        = "identity",
             show.legend = show_legend,
-            position = position_stack(vjust = 0.5, reverse = TRUE),
-            color = "black",
-            size = contour_line_size
+            position    = ggplot2::position_stack(vjust = 0.5, reverse = TRUE),
+            color       = "black",
+            size        = contour_line_size
           ) +
-          scale_y_continuous(
-            labels = scales::percent_format(accuracy = percent_accuracy),
+          ggplot2::scale_y_continuous(
+            labels = scales::percent,
             breaks = seq(0, 1, by = y_breaks),
             limits = y_lim
           )
@@ -289,57 +304,59 @@ bar_plot <-
 
     } else if (style == "fill") {
       bars <-
-        bars + geom_bar(
-          width = 0.5,
-          mapping = aes_string(x = x_var, y = "y", fill = fill_var),
-          stat = "identity",
+        bars +
+        ggplot2::geom_bar(
+          width       = 0.5,
+          mapping     = ggplot2::aes_string(x = x_var, y = "y", fill = fill_var),
+          stat        = "identity",
           show.legend = show_legend,
-          position = position_fill(vjust = 0.5, reverse = TRUE),
-          color = "black",
-          size = contour_line_size
+          position    = ggplot2::position_fill(vjust = 0.5, reverse = TRUE),
+          color       = "black",
+          size        = contour_line_size
         ) +
-        scale_y_continuous(breaks = seq(0, y_breaks_end, by = y_breaks),
+        ggplot2::scale_y_continuous(breaks = seq(0, y_breaks_end, by = y_breaks),
                            limits = y_lim)
 
     } else if (style == "dodge") {
       bars <-
-        bars + geom_bar(
+        bars +
+        ggplot2::geom_bar(
           width = 0.5,
-          mapping = aes_string(x = x_var, y = "y", fill = fill_var),
+          mapping = ggplot2::aes_string(x = x_var, y = "y", fill = fill_var),
           stat = "identity",
           show.legend = show_legend,
-          position = position_dodge(width = 0.5),
+          position = ggplot2::position_dodge(width = 0.5),
           color = "black",
           size = contour_line_size
         ) +
-        scale_y_continuous(breaks = seq(0, y_breaks_end, by = y_breaks),
+        ggplot2::scale_y_continuous(breaks = seq(0, y_breaks_end, by = y_breaks),
                            limits = y_lim)
 
 
     } else{
       bars <-
-        bars + geom_bar(
+        bars +
+        ggplot2::geom_bar(
           width = 0.5,
-          mapping = aes_string(x = x_var, y = "y", fill = fill_var),
+          mapping = ggplot2::aes_string(x = x_var, y = "y", fill = fill_var),
           stat = "identity",
           show.legend = show_legend,
-          position = position_stack(vjust = 0.5, reverse = TRUE),
+          position = ggplot2::position_stack(vjust = 0.5, reverse = TRUE),
           color = "black",
           size = contour_line_size
         ) +
-        scale_y_continuous(breaks = seq(0, y_breaks_end, by = y_breaks),
+        ggplot2::scale_y_continuous(breaks = seq(0, y_breaks_end, by = y_breaks),
                            limits = y_lim)
     }
 
     if (is.numeric(df[[x_var]]) & !is.null(x_breaks)) {
       bars <-
         bars +
-        scale_x_continuous(
+        ggplot2::scale_x_continuous(
           breaks = seq(floor(min(df[[x_var]])),
                        ceiling(max(df[[x_var]])),
                        by = x_breaks)
           )
-
     }
     bars
 }

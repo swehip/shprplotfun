@@ -37,10 +37,13 @@ prom_trends(eq_vas_exp, eq_vas_obs, eq_vas_riket, pain_exp, pain_obs,
 \item{riket_name}{Character to find what row is Swedish average,
 usually named "Riket".}
 
+\item{y_labs}{Labels for y-axis}
+
 \item{y_breaks}{Y breaks in the three plots.}
 
 \item{year}{X-axis years, character vector works.
-The year variables will be renamed as they appear in the data set.}
+The year variables will be renamed as they appear
+in the data set.}
 
 \item{subset}{Which plots should be generated, subset = 1
 corresponds to the first plot in alphabetical order.}
@@ -58,18 +61,17 @@ corresponds to the first plot in alphabetical order.}
 \item{panel_grid_size}{Size of the panel grid lines in plot,
 useful to change if large dpi!}
 
-\item{axis_size}{Size of the axis lines, useful to change if large dpi!}
+\item{axis_size}{Size of the axis lines, useful to change if large dpi}
 
 \item{line_size}{Line thickness of the lines in plot.}
 
 \item{point_size}{Point sizes in plot.}
 
 \item{legend_pos}{Position of the legend in plot, matrix where each row
-corresponds to a legend position is recommended, if length(subset) > 1.}
+corresponds to a legend position is recommended,
+if length(subset) > 1.}
 
-\item{n_row}{Number of rows for the three plots. Default is 1.}
-
-\item{n_col}{Number of columns for the three plots. Default is 3.}
+\item{n_row, n_col}{Number of rows/columns for the three plots.}
 }
 \value{
 List of several gtable objects where each gtable object is one clinic
@@ -80,7 +82,7 @@ Visualizing PROM-trends for each clinic using ggplot2.
 \examples{
 # Create trend plot for SU/Mölndal
 # Look at the 9 data sets to see the required structure.
-Data sets are included in the package.
+# Data sets are included in the package.
 
 example_plot <- prom_trends(
   eq_vas_exp, eq_vas_obs, eq_vas_riket, pain_exp,

@@ -10,14 +10,12 @@ trend_plot(df, x_var, y_var, y_breaks = 5, y_lim = c(54.9, 65.1),
   subtitle_size = 12, line_color = "#377EB8", line_size = 1,
   point_size = 1, background_color = "moccasin",
   panel_grid_color = "grey", panel_grid_size = 0.3, axis_size = 0.3,
-  axis_text_angle = 0, text_size = 8)
+  axis_text_angle = 0, text_size = 8, percent_accuracy = 1)
 }
 \arguments{
 \item{df}{Data frame.}
 
-\item{x_var}{X variable.}
-
-\item{y_var}{Y variable.}
+\item{x_var, y_var}{X and Y variable.}
 
 \item{y_breaks}{Length between each break on y-axis.}
 
@@ -25,9 +23,7 @@ trend_plot(df, x_var, y_var, y_breaks = 5, y_lim = c(54.9, 65.1),
 
 \item{x_breaks}{Length between each break on x-axis.}
 
-\item{y_lab}{Y-axis label, use NULL for no label.}
-
-\item{x_lab}{X-axis label, use NULL for no label.}
+\item{x_lab, y_lab}{X and Y-axis labels, use NULL for no label.}
 
 \item{title}{Plot title, NULL for no title.}
 
@@ -57,14 +53,14 @@ levels.}
 
 \item{text_size}{Size of the text in pt.}
 
-\item{percent_accuracy}{Set accuracy for scales::percent_format. See help. Default 1.}
+\item{percent_accuracy}{Set accuracy for \code{\link{percent_format}}.}
 }
 \value{
-Ggplot object containg trend plot.
+ggplot object containg trend plot.
 }
 \description{
 Simple function to show trend in percent (y_var) between different years
-(x_var) using geom_smooth (ggplot2).
+(x_var) using \code{\link{geom_smooth}}.
 }
 \examples{
 
@@ -74,5 +70,5 @@ df <- data.frame(year = 2000:2017, prob = rnorm(18, 0.5, 0.02))
 
 # Trend
 
-trend_plot(df = df, x_var = 'year', y_var = 'prob', y_breaks = 2, y_lim = range(df$prob)*100)
+trend_plot(df, 'year', 'prob', y_breaks = 2, y_lim = range(df$prob) * 100)
 }

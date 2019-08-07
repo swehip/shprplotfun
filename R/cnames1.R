@@ -2,9 +2,12 @@
 #' swe_landsting)
 #'
 #' @format A data frame with 9 rows and 3 variables. The negligible variables
-#'   have been removed from the original data set: \describe{ \item{NAME_1}{name
-#'   of county, character} \item{long}{longitude, numeric} \item{lat}{latitude,
-#'   numeric} }
+#'   have been removed from the original data set:
+#'   \describe{
+#'     \item{NAME_1}{name of county, character}
+#'     \item{long}{longitude, numeric}
+#'     \item{lat}{latitude, numeric}
+#'  }
 #'
 #' @examples
 #' library(ggplot2)

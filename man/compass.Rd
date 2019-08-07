@@ -26,8 +26,7 @@ named "Riket".}
 \item{alpha_hosp}{Modify color transparency for hospital color. Use < 1 if
 colors are to be mixed.}
 
-\item{titles}{Character vector containing compass titles. If long titles,
-use '\n' to end line!}
+\item{titles}{Character vector containing compass titles.}
 
 \item{title_size}{Text size of title in pt.}
 

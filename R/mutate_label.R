@@ -11,17 +11,16 @@
 #' @export
 mutate_label <- function(x) {
   if (is.numeric(x)) {
-    labels <- setNames(as.numeric(as.character(attr(x, "map")$levels)),
+    labels <- stats::setNames(as.numeric(as.character(attr(x, "map")$levels)),
                        as.character(attr(x, "map")$labels))
 
   } else if (is.factor(x)) {
-    labels <- setNames(as.character(attr(x, "map")$levels),
+    labels <- stats::setNames(as.character(attr(x, "map")$levels),
                        as.character(attr(x, "map")$labels))
     x <- as.character(x)
   } else{
-    labels <- setNames(attr(x, "map")$levels,
-                       attr(x, "map")$labels)
+    labels <- stats::setNames(attr(x, "map")$levels, attr(x, "map")$labels)
   }
 
-  labelled(x, labels)
+  haven::labelled(x, labels)
 }

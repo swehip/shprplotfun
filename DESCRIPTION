@@ -5,18 +5,24 @@ Version: 0.1.1
 Author: Daniel Odin <daniel.odin@gmail.com>
 Maintainer: Daniel Odin <daniel.odin@gmail.com>
 Description: Several functions used for SHPR annual report, 
-    mostly plot functions where some functions are more general, 
-    such as bar_plot, km_plot, line_plot, and trend_age.
+  mostly plot functions where some functions are more general, 
+  such as bar_plot, km_plot, line_plot, and trend_age.
 Encoding: UTF-8
+Depends: R (>= 2.10)
 Imports: 
-  ggplot2, 
-  dplyr, 
+  ggplot2,
+  scales,
+  dplyr,
+  tidyr,
   gridExtra, 
   mapproj,
   haven,
   writexl
+Suggests:
+  survival,
+  xlsx
 LazyData: true
-RoxygenNote: 6.1.1
 URL: https://www.github.com/swehip/shprplotfun
-BugReports: https://github.com/swehip/shprplotfun/issues
+BugReports: https://www.github.com/swehip/shprplotfun/issues
 License: MIT + file LICENSE
+RoxygenNote: 6.1.1

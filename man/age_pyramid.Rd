@@ -13,10 +13,10 @@ age_pyramid(df, age_var = "Alder", gender_var = "Kon",
   title_margin = 1, y_lab = NULL, x_lab = NULL,
   background_color = "moccasin", panel_grid_color = "grey",
   panel_grid_size = 0.3, contour_line_size = 0.1, axis_size = 0.3,
-  axis_text_angle = 0, text_size = 8, windows_font = "Calibri",
-  fill_colors = c("#377EB8", "#E41A1C"), legend_pos = c(0, 0),
-  legend_labels = waiver(), label_breaks = waiver(),
-  legend_row = NULL, legend_col = NULL)
+  axis_text_angle = 0, text_size = 8, fill_colors = c("#377EB8",
+  "#E41A1C"), legend_pos = c(0, 0), legend_labels = ggplot2::waiver(),
+  label_breaks = ggplot2::waiver(), legend_row = NULL,
+  legend_col = NULL)
 }
 \arguments{
 \item{df}{Data frame.}
@@ -31,24 +31,21 @@ age_pyramid(df, age_var = "Alder", gender_var = "Kon",
 
 \item{age_labels}{Label of the interval.}
 
-\item{percent}{If TRUE, x-axis is in percent form. Otherwise in count form.}
+\item{percent}{If TRUE, x-axis is in percent form.
+Otherwise in count form.}
 
 \item{x_breaks}{Length between each break on x-axis.}
 
 \item{x_breaks_end}{Break end, default for 100000. Works for all count
 values below that.}
 
-\item{title}{Plot title, NULL for no title.}
+\item{title, subtitle}{Plot title/subtitle, NULL for no title.}
 
-\item{subtitle}{Small text under title, NULL for no subtitle.}
+\item{title_size, subtitle_size}{Text size of title/subtitle in pt.}
 
-\item{title_size}{Text size of title in pt.}
+\item{title_margin}{Margin for title}
 
-\item{subtitle_size}{Text size of subtitle in pt.}
-
-\item{y_lab}{Y-axis label, use NULL for no label.}
-
-\item{x_lab}{X-axis label, use NULL for no label.}
+\item{x_lab, y_lab}{X/Y-axis labels, use NULL for no label.}
 
 \item{background_color}{Color of the panel background.}
 
@@ -56,6 +53,8 @@ values below that.}
 
 \item{panel_grid_size}{Size of the panel grid lines in plot and contour
 lines around bars, useful to change if large dpi!}
+
+\item{contour_line_size}{Passed to argument "size" to \code{\link{geom_bar}}}
 
 \item{axis_size}{Size of the axis lines.}
 
@@ -66,19 +65,17 @@ levels.}
 
 \item{fill_colors}{Colors of the genders.}
 
-\item{legend_pos}{Position of the legend in plot, if c(1,1), c(1,0) etc,
-legend inside plot.}
+\item{legend_pos}{Position of the legend in plot,
+if c(1,1), c(1,0) etc, legend inside plot.}
 
 \item{legend_labels}{Label for each legend key.}
 
 \item{label_breaks}{Order of the legend keys.}
 
-\item{legend_row}{How many rows for the legends.}
-
-\item{legend_col}{How many columns for the legends.}
+\item{legend_row, legend_col}{How many rows/columns for the legends.}
 }
 \value{
-Ggplot object containing age pyramid plot.
+ggplot object containing age pyramid plot.
 }
 \description{
 Plot an age pyramid using ggplot2.
@@ -89,11 +86,12 @@ df <- data.frame(age = rpois(100000, 65),
   gender = sample(c('Woman', 'Woman', 'Man'), 100000, replace = TRUE))
 
 # Age pyramid
-age_pyramid(df = df, age_var = 'age', gender_var = 'gender',
+age_pyramid(df, age_var = 'age', gender_var = 'gender',
   man_level = 'Man', title = "This is an age pyramid")
 
 # Age pyramid with percent = FALSE
-age_pyramid(df = df, age_var = 'age', gender_var = 'gender',
+age_pyramid(df, age_var = 'age', gender_var = 'gender',
   man_level = 'Man', percent = FALSE, x_breaks = 5000,
   title = "This is an age pyramid")
+
 }

@@ -13,14 +13,15 @@ line_plot(df, x_var, color_var = NULL, y_var = NULL,
   panel_grid_size = 0.3, axis_size = 0.3, axis_text_angle = 0,
   text_size = 8, fill_colors = c("#377EB8", "#E41A1C", "#4DAF4A",
   "#984EA3", "#FF7F00", "#FFFF33", "#A65628", "#F781BF"),
-  legend_pos = "bottom", legend_labels = waiver(),
-  label_breaks = waiver(), legend_background = "transparent",
+  legend_pos = "bottom", legend_labels = ggplot2::waiver(),
+  label_breaks = ggplot2::waiver(), legend_background = "transparent",
   legend_row = NULL, legend_col = NULL)
 }
 \arguments{
 \item{df}{Data frame.}
 
-\item{x_var}{Variable for x-axis, use string name. Recommended that x_var is
+\item{x_var}{Variable for x-axis, use string name.
+Recommended that x_var is
 in character in df (not necessary).}
 
 \item{color_var}{Variable for the different colors in lines, use string
@@ -34,7 +35,7 @@ or color_var.}
 \item{y_percent}{If TRUE, y-axis is in percent form. Otherwise in count
 form.}
 
-\item{percent_accuracy}{Set accuracy for scales::percent_format. See help. Default 1.}
+\item{percent_accuracy}{Set accuracy for \code{\link{percent_format}}.}
 
 \item{y_lim}{Limit on y-axis.}
 

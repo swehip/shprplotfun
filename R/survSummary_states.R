@@ -10,7 +10,7 @@ survSummary_states <- function(surv_object, times) {
   # If there is not enough follow up time the latest results is extrapolated
 
   result <- NULL
-  group_vars <- dplyr::select(surv_object, -models)
+  group_vars <- dplyr::select_(surv_object, ~-models)
 
   for (i in seq_along(surv_object$models)) {
     sum_temp <- summary(surv_object$models[[i]], times, extend = TRUE)
@@ -21,27 +21,27 @@ survSummary_states <- function(surv_object, times) {
     n_event <- data.frame(
       n_event = sum_temp$n.event[, -cens_index],
       states = paste0("event_", sum_temp$states[-cens_index])) %>%
-      tidyr::spread(states, n_event)
+      tidyr::spread_("states", "n_event")
 
     pstates <- data.frame(
       props = sum_temp$pstate[, -cens_index],
       states = paste0("prop_", sum_temp$states[-cens_index])) %>%
-      tidyr::spread(states, props)
+      tidyr::spread_("states", "props")
 
     lower <- data.frame(
       props = sum_temp$lower[, -cens_index],
       states = paste0("lower_", sum_temp$states[-cens_index])) %>%
-      tidyr::spread(states, props)
+      tidyr::spread_("states", "props")
 
     upper <- data.frame(
       props = sum_temp$upper[, -cens_index],
       states = paste0("upper_", sum_temp$states[-cens_index])) %>%
-      tidyr::spread(states, props)
+      tidyr::spread_("states", "props")
 
     sd <- data.frame(
       sd = sum_temp$std.err[, -cens_index],
       states = paste0("sd_", sum_temp$states[-cens_index])) %>%
-      tidyr::spread(states, sd)
+      tidyr::spread_("states", "sd")
 
     temp_result <-
       dplyr::bind_cols(n, n_risk, n_event, pstates, lower, upper, sd)

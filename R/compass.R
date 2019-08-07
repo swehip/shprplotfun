@@ -11,8 +11,7 @@
 #'   1 if colors are to be mixed.
 #' @param alpha_hosp Modify color transparency for hospital color. Use < 1 if
 #'   colors are to be mixed.
-#' @param titles  Character vector containing compass titles. If long titles,
-#'   use '\n' to end line!
+#' @param titles  Character vector containing compass titles.
 #' @param title_size  Text size of title in pt.
 #' @param line_size  Size of the lines in the choord, useful to change if large
 #'   dpi!
@@ -38,9 +37,9 @@ compass <-
     # Data transformation -----------------------------------------------------
     # Creating new data frame to be able to use ggplot in a smooth way
 
-    category <- vector('character')
+    category   <- vector('character')
     norm_value <- vector('numeric')
-    enhet <- vector('character')
+    enhet      <- vector('character')
 
     for (i in 1:dim(df)[1]) {
       category <- c(category, names(df)[-1])
@@ -48,13 +47,13 @@ compass <-
       enhet <- c(enhet, as.character(rep(df[i, 1], dim(df)[2] - 1)))
     }
 
-    new_df <- tibble(enhet, category, norm_value)
+    new_df <- dplyr::tibble(enhet, category, norm_value)
 
     new_df$category <-
       ordered(new_df$category, levels = names(df)[-1])
 
-    filtered_df <- filter(new_df, enhet != riket_name)
-    riket_df <- filter(new_df, enhet == riket_name)
+    filtered_df <- dplyr::filter(new_df, enhet != riket_name)
+    riket_df    <- dplyr::filter(new_df, enhet == riket_name)
 
     names(riket_df)[1] <- "riket"
 
@@ -73,58 +72,56 @@ compass <-
     }
     # Creating coord ----------------------------------------------------------
 
-    coord_radar <- function (theta = "x",
-                             start = 0,
-                             direction = 1) {
+    coord_radar <- function(theta = "x", start = 0, direction = 1) {
       theta <- match.arg(theta, c("x", "y"))
       r <- if (theta == "x")
         "y"
       else
         "x"
-      ggproto(
+      ggplot2::ggproto(
         "CordRadar",
-        CoordPolar,
-        theta = theta,
-        r = r,
-        start = start,
+        ggplot2::CoordPolar,
+        theta     = theta,
+        r         = r,
+        start     = start,
         direction = sign(direction),
-        is_linear = function(coord)
-          TRUE
+        is_linear = function(coord) TRUE
       )
     }
 
     # Compass function --------------------------------------------------------
 
-    ggplot(data = filtered_df, aes(x = category, y = norm_value)) +
+    ggplot2::ggplot(
+      data = filtered_df, ggplot2::aes(x = category, y = norm_value)) +
       coord_radar(start = -pi / length(names(df)[-1])) +
-      theme_minimal() +
-      facet_wrap( ~ enhet,
+      ggplot2::theme_minimal() +
+      ggplot2::facet_wrap( ~ enhet,
                   ncol = ncol,
-                  labeller = as_labeller(hospital_names)) +
-      geom_polygon(
+                  labeller = ggplot2::as_labeller(hospital_names)) +
+      ggplot2::geom_polygon(
         data = riket_df,
-        aes(group = riket),
+        ggplot2::aes_(group = ~riket),
         fill = riket_color,
         show.legend = FALSE,
         alpha = alpha_riket
       ) +
-      geom_polygon(
-        aes(group = enhet),
+      ggplot2::geom_polygon(
+        ggplot2::aes(group = enhet),
         fill = hosp_color,
         show.legend = FALSE,
         alpha = alpha_hosp
       ) +
-      xlab(NULL) +
-      ylab(NULL) +
-      scale_y_continuous(limits = c(0, 1)) +
-      theme(
-        axis.ticks.y = element_blank(),
-        axis.text.y  = element_blank(),
-        axis.text.x = element_blank(),
-        strip.text.x = element_text(size = title_size),
-        panel.grid.major = element_line(colour = "black", size = line_size),
-        panel.grid.major.y = element_blank(),
-        plot.margin = margin(1, 1, 1, 1, unit = "mm")
+      ggplot2::xlab(NULL) +
+      ggplot2::ylab(NULL) +
+      ggplot2::scale_y_continuous(limits = c(0, 1)) +
+      ggplot2::theme(
+        axis.ticks.y       = ggplot2::element_blank(),
+        axis.text.y        = ggplot2::element_blank(),
+        axis.text.x        = ggplot2::element_blank(),
+        strip.text.x       = ggplot2::element_text(size = title_size),
+        panel.grid.major   =
+          ggplot2::element_line(colour = "black", size = line_size),
+        panel.grid.major.y = ggplot2::element_blank(),
+        plot.margin        = ggplot2::margin(1, 1, 1, 1, unit = "mm")
       )
-
   }

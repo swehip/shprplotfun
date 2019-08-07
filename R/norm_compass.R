@@ -17,17 +17,14 @@
 #' @export
 
 norm_compass <- function(x, riket_index = length(x)){
-  temp <- x[-riket_index]
+  temp      <- x[-riket_index]
 
   max_riket <- max(temp, na.rm = TRUE)
   min_riket <- min(temp, na.rm = TRUE)
 
-  min_korr <- min_riket - sd(temp, na.rm = TRUE)
-  max_korr <- max_riket + sd(temp, na.rm = TRUE)
-  maxmin <- max_korr - min_korr
+  min_korr  <- min_riket - stats::sd(temp, na.rm = TRUE)
+  max_korr  <- max_riket + stats::sd(temp, na.rm = TRUE)
+  maxmin    <- max_korr - min_korr
 
-  result <- (x - min_korr) / maxmin
-
-  return(result)
-
+  (x - min_korr) / maxmin
 }

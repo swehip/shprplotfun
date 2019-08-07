@@ -14,17 +14,20 @@ compass_riket(df, riket_name = "Riket", axis_titles = names(df)[-1],
 \arguments{
 \item{df}{Data frame.}
 
-\item{axis_titles}{Titles on the axis, character vector works. If long
-titles, use '\n' to end line!}
+\item{riket_name}{Hos to adress the nation.}
+
+\item{axis_titles}{Titles on the axis, character vector works.}
 
 \item{poly_color}{Color of the polygon.}
 
-\item{color_alpha}{Modify color transparency for polygon color. Should be the
-same as alpha_riket for function compass.}
+\item{color_alpha}{Modify color transparency for polygon color.
+Should be the same as alpha_riket for function
+  compass.}
 
 \item{title}{Title of the compass, use NULL for no title.}
 
-\item{subtitle}{Small text under the title, use NULL for no subtitle.}
+\item{subtitle}{Small text under the title, use NULL for no
+subtitle.}
 
 \item{title_size}{Text size of title in pt.}
 
@@ -32,19 +35,20 @@ same as alpha_riket for function compass.}
 
 \item{axis_text_size}{Text size of axis titles in pt.}
 
-\item{line_size}{Size of the lines in the choord, useful to change if large
-dpi!}
+\item{line_size}{Size of the lines in the choord,
+useful to change if large dpi!}
 
 \item{axis_text_position}{Where the text is on the axis.}
 
-\item{v_just}{Vertical adjustments to the text on the axis, "outward" is
-default means text is aligned away from the center.}
+\item{v_just}{Vertical adjustments to the text on the axis,
+"outward" is default means text is aligned away
+from the center.}
 
-\item{h_just}{Horizontal adjustments to the text on the axis, "middle" is
-default.}
+\item{h_just}{Horizontal adjustments to the text on the axis,
+"middle" is default.}
 }
 \value{
-Ggplot object containing compass plot of Swedish average with text on
+ggplot object containing compass plot of Swedish average with text on
   the axis.
 }
 \description{
