@@ -106,13 +106,13 @@
     </div>
 
     <pre class="usage"><span class='fu'>km_plot</span>(<span class='no'>survfit_obj</span>, <span class='kw'>make_step</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>first_point</span> <span class='kw'>=</span> <span class='fl'>1</span>,
-  <span class='kw'>one_level</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>y_lim</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>y_breaks</span> <span class='kw'>=</span> <span class='fl'>5</span>, <span class='kw'>x_lim</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>x_breaks</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>n_points</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>n_risk_break</span> <span class='kw'>=</span> <span class='fl'>50</span>, <span class='kw'>title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>subtitle</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>title_size</span> <span class='kw'>=</span> <span class='fl'>14</span>, <span class='kw'>subtitle_size</span> <span class='kw'>=</span> <span class='fl'>10</span>,
-  <span class='kw'>title_margin</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>y_lab</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>x_lab</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>background_color</span> <span class='kw'>=</span> <span class='st'>"moccasin"</span>, <span class='kw'>panel_grid_color</span> <span class='kw'>=</span> <span class='st'>"grey"</span>,
-  <span class='kw'>panel_grid_size</span> <span class='kw'>=</span> <span class='fl'>0.3</span>, <span class='kw'>axis_size</span> <span class='kw'>=</span> <span class='fl'>0.3</span>, <span class='kw'>text_size</span> <span class='kw'>=</span> <span class='fl'>8</span>,
-  <span class='kw'>line_size</span> <span class='kw'>=</span> <span class='fl'>0.5</span>, <span class='kw'>show_ci</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>ribbon_ci</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>one_level</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>y_lim</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>percent_accuracy</span> <span class='kw'>=</span> <span class='fl'>1</span>,
+  <span class='kw'>y_breaks</span> <span class='kw'>=</span> <span class='fl'>5</span>, <span class='kw'>x_lim</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>x_breaks</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>n_points</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>n_risk_break</span> <span class='kw'>=</span> <span class='fl'>50</span>, <span class='kw'>title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>subtitle</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>title_size</span> <span class='kw'>=</span> <span class='fl'>14</span>, <span class='kw'>subtitle_size</span> <span class='kw'>=</span> <span class='fl'>10</span>, <span class='kw'>title_margin</span> <span class='kw'>=</span> <span class='fl'>1</span>,
+  <span class='kw'>y_lab</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>x_lab</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>background_color</span> <span class='kw'>=</span> <span class='st'>"moccasin"</span>,
+  <span class='kw'>panel_grid_color</span> <span class='kw'>=</span> <span class='st'>"grey"</span>, <span class='kw'>panel_grid_size</span> <span class='kw'>=</span> <span class='fl'>0.3</span>, <span class='kw'>axis_size</span> <span class='kw'>=</span> <span class='fl'>0.3</span>,
+  <span class='kw'>text_size</span> <span class='kw'>=</span> <span class='fl'>8</span>, <span class='kw'>line_size</span> <span class='kw'>=</span> <span class='fl'>0.5</span>, <span class='kw'>show_ci</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>ribbon_ci</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
   <span class='kw'>ribbon_alpha</span> <span class='kw'>=</span> <span class='fl'>0.5</span>, <span class='kw'>ci_line_size</span> <span class='kw'>=</span> <span class='fl'>0.2</span>, <span class='kw'>line_colors</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"#377EB8"</span>,
   <span class='st'>"#E41A1C"</span>, <span class='st'>"#4DAF4A"</span>, <span class='st'>"#984EA3"</span>, <span class='st'>"#FF7F00"</span>, <span class='st'>"#FFFF33"</span>, <span class='st'>"#A65628"</span>,
   <span class='st'>"#F781BF"</span>), <span class='kw'>legend_pos</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>0</span>), <span class='kw'>legend_labels</span> <span class='kw'>=</span> <span class='kw pkg'>ggplot2</span><span class='kw ns'>::</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/waiver.html'>waiver</a></span>(),
@@ -147,6 +147,10 @@ level in the strata.</p></td>
     <tr>
       <th>y_lim</th>
       <td><p>Limit on y-axis.</p></td>
+    </tr>
+    <tr>
+      <th>percent_accuracy</th>
+      <td><p>Set accuracy for <code>percent_format</code>.</p></td>
     </tr>
     <tr>
       <th>y_breaks</th>
