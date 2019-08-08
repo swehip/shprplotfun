@@ -298,12 +298,7 @@ km_plot <-
         axis.text             = ggplot2::element_text(
                                    colour = "black", size = text_size),
         axis.title            = ggplot2::element_text(size = text_size),
-        legend.text          = ggplot2::element_text(
-          size = text_size,
-          margin = ggplot2::margin(
-            l = text_size / 2,
-            r = text_size / 2)
-        ),
+        legend.text          = ggplot2::element_text(size = text_size),
         legend.position       = legend_pos,
         legend.justification  = legend_pos,
         legend.background     = ggplot2::element_rect(fill = "transparent"),
