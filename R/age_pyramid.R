@@ -165,12 +165,7 @@ age_pyramid <-
                              size = text_size),
     axis.text.x          = ggplot2::element_text(angle = axis_text_angle),
     axis.title           = ggplot2::element_text(size = text_size),
-    legend.text          = ggplot2::element_text(
-                             size = text_size,
-                             margin = ggplot2::margin(
-                               l = text_size / 2,
-                               r = text_size / 2)
-                            ),
+    legend.text          = ggplot2::element_text(size = text_size),
     legend.background    = ggplot2::element_rect(fill = "transparent"),
     legend.title         = ggplot2::element_text(size = text_size),
     legend.key.height    = ggplot2::unit(text_size, "pt"),
