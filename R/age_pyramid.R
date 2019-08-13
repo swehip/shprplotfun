@@ -111,7 +111,7 @@ age_pyramid <-
       df$Population[df[, gender_var] != man_level] / n_woman * 100
 
     x_lim <- max(abs(df$Population))
-    x_labels <- paste(x_labels, "%")
+    x_labels <- paste0(x_labels, "%")
   }
 
   # Ggplot ------------------------------------------------------------------
