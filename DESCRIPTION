@@ -1,7 +1,7 @@
 Package: shprplotfun
 Type: Package
 Title: R functions for SHPR annual report
-Version: 0.1.3
+Version: 0.1.4
 Author: Daniel Odin <daniel.odin@gmail.com>
 Maintainer: Daniel Odin <daniel.odin@gmail.com>
 Description: Several functions used for SHPR annual report, 
