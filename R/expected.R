@@ -46,7 +46,7 @@ expected <- function(outcome, data1, data2, data3, data4,
 
   add_expected <- function(df, frml, year_period, mean_group, outcome){
 
-    df_names <- c(mean_group, paste0("res", year_period), paste0("n", year_period))
+    df_names <- c("hospital", paste0("res", year_period), paste0("n", year_period))
 
     year_period <- as.symbol(year_period)
     mean_group <- as.symbol(mean_group)
@@ -76,5 +76,5 @@ expected <- function(outcome, data1, data2, data3, data4,
   dplyr::full_join(data1, data2) %>%
     dplyr::full_join(data3) %>%
     dplyr::full_join(data4) %>%
-    dplyr::arrange(!!mean_group)
+    dplyr::arrange(hospital)
 }
