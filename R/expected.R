@@ -27,54 +27,54 @@ expected <- function(outcome, data1, data2, data3, data4,
                      year_period4 = "2014_2015",
                      mean_group   = "Unit") {
 
+
+  require(dplyr)
+
   ## EQ5D ---------------------------------------------------------------------
   frml <- stats::as.formula(
     sprintf(
       "%s ~   PREP_HipPain    +
       PREP_VASHealth    +
-      eq5d0swe   +
-      eq10 + eq20 + eq30 + eq40 + eq50 +
       P_DiaGrp +
       P_Age + P_Gender + PREP_Charnley",
       outcome
     )
   )
 
-  fit1 <- stats::lm(frml, data = data1)
-  fit2 <- stats::lm(frml, data = data2)
-  fit3 <- stats::lm(frml, data = data3)
-  fit4 <- stats::lm(frml, data = data4)
+  # eq5d0swe   +
+  #   eq10 + eq20 + eq30 + eq40 + eq50 +
 
-  #### Extract the means by hospital
+  add_expected <- function(df, frml, year_period, mean_group, outcome){
 
-  res <- function(fit, data, f) tapply(fit$fitted.values, data[[mean_group]], f)
+    df_names <- c(mean_group, paste0("res", year_period), paste0("n", year_period))
 
-  fited.means  <-
-    data.frame(
-      res2008_2009 = res(fit1, data1, mean),
-      n2008_2009   = res(fit1, data1, length),
+    year_period <- as.symbol(year_period)
+    mean_group <- as.symbol(mean_group)
+    outcome <- as.symbol(outcome)
 
-      res2010_2011 = res(fit2, data2, mean),
-      n2010_2011   = res(fit2, data2, length),
 
-      res2012_2013 = res(fit3, data3, mean),
-      n2012_2013   = res(fit3, data3, length),
+    fit <- stats::lm(frml, data = df)
+    df$fit_values <- fit$fitted.values
 
-      res2014_2015 = res(fit4, data4, mean),
-      n2014_2015   = res(fit4, data4, length),
-    )
+    df <- df %>%
+      dplyr::group_by(!!mean_group) %>%
+      dplyr::summarise(res = mean(fit_values, na.rm = TRUE),
+                       n = sum(!is.na(!!outcome)))
 
-  names(fited.means) <- c(
-    paste0("res", year_period1),
-    paste0("n",   year_period1),
-    paste0("res", year_period2),
-    paste0("n",   year_period2),
-    paste0("res", year_period3),
-    paste0("n",   year_period3),
-    paste0("res", year_period4),
-    paste0("n",   year_period4)
-  )
+    names(df) <- df_names
 
-  fited.means$hospital <- rownames(fited.means)
-  fited.means
+    df
+  }
+
+  data1 <- add_expected(data1, frml, year_period1, mean_group, outcome)
+  data2 <- add_expected(data2, frml, year_period2, mean_group, outcome)
+  data3 <- add_expected(data3, frml, year_period3, mean_group, outcome)
+  data4 <- add_expected(data4, frml, year_period4, mean_group, outcome)
+
+  mean_group <- as.symbol(mean_group)
+
+  dplyr::full_join(data1, data2) %>%
+    dplyr::full_join(data3) %>%
+    dplyr::full_join(data4) %>%
+    dplyr::arrange(!!mean_group)
 }
