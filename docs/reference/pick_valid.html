@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>New xlsx saver — save_xlsx • shprplotfun</title>
+<title>Help function for add_prom — pick_valid • shprplotfun</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,9 +30,9 @@
 
 
 
-<meta property="og:title" content="New xlsx saver — save_xlsx" />
+<meta property="og:title" content="Help function for add_prom — pick_valid" />
 
-<meta property="og:description" content="Used to save xlsx files." />
+<meta property="og:description" content="If there are several PROM on same date, this function populate rows with existing PROM values." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -94,52 +94,24 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>New xlsx saver</h1>
+    <h1>Help function for add_prom</h1>
     
-    <div class="hidden name"><code>save_xlsx.Rd</code></div>
+    <div class="hidden name"><code>pick_valid.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Used to save xlsx files.</p>
+    <p>If there are several PROM on same date, this function populate rows with existing PROM values.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>save_xlsx</span>(<span class='no'>file</span>, <span class='no'>...</span>, <span class='kw'>row_names</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>col_names</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>bold</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
-    
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
-    <table class="ref-arguments">
-    <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>file</th>
-      <td><p>Filename.</p></td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td><p>Data frames or matrices, where each data frame will be saved into
-one sheet.</p></td>
-    </tr>
-    <tr>
-      <th>row_names</th>
-      <td><p>If TRUE, row names are included in output.</p></td>
-    </tr>
-    <tr>
-      <th>col_names</th>
-      <td><p>If TRUE, column names are included in output.</p></td>
-    </tr>
-    <tr>
-      <th>bold</th>
-      <td><p>If TRUE, column names are centered and bold.</p></td>
-    </tr>
-    </table>
-    
+    <pre class="usage"><span class='fu'>pick_valid</span>(<span class='no'>x</span>)</pre>
+        
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
                 </ul>
 
   </div>

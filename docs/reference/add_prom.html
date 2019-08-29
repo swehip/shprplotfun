@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>New xlsx saver — save_xlsx • shprplotfun</title>
+<title>Add PROM to operation data — add_prom • shprplotfun</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,9 +30,10 @@
 
 
 
-<meta property="og:title" content="New xlsx saver — save_xlsx" />
+<meta property="og:title" content="Add PROM to operation data — add_prom" />
 
-<meta property="og:description" content="Used to save xlsx files." />
+<meta property="og:description" content="Easy way to add PROM data to operation data. Preoperation and postoperation 1 year, 6 years and 10 years are added.
+Also an option to add reoperation PROM." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -94,45 +95,58 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>New xlsx saver</h1>
+    <h1>Add PROM to operation data</h1>
     
-    <div class="hidden name"><code>save_xlsx.Rd</code></div>
+    <div class="hidden name"><code>add_prom.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Used to save xlsx files.</p>
+    <p>Easy way to add PROM data to operation data. Preoperation and postoperation 1 year, 6 years and 10 years are added.
+Also an option to add reoperation PROM.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>save_xlsx</span>(<span class='no'>file</span>, <span class='no'>...</span>, <span class='kw'>row_names</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>col_names</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>bold</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
+    <pre class="usage"><span class='fu'>add_prom</span>(<span class='no'>dataOp</span>, <span class='no'>dataPREP</span>, <span class='no'>dataPOSTP</span>, <span class='kw'>cens_date</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>primary_prom_start_year</span> <span class='kw'>=</span> <span class='fl'>2002</span>, <span class='kw'>add_reop_prom</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>reop_prom_start_year</span> <span class='kw'>=</span> <span class='fl'>2017</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>file</th>
-      <td><p>Filename.</p></td>
+      <th>dataOp</th>
+      <td><p>Corresponds to dataOperations in SHPR datalayer. Variables needed are SubjectKey, P_Side, P_ProstType and P_SurgDate.</p></td>
     </tr>
     <tr>
-      <th>...</th>
-      <td><p>Data frames or matrices, where each data frame will be saved into
-one sheet.</p></td>
+      <th>dataPREP</th>
+      <td><p>Corresponds to dataPROMBefore. Variables SubjectKey, PREP_HipPain[L|R] must be included.</p></td>
     </tr>
     <tr>
-      <th>row_names</th>
-      <td><p>If TRUE, row names are included in output.</p></td>
+      <th>dataPOSTP</th>
+      <td><p>Corresponds to dataPROMAfter. Variables SubjectKey, POSTP_HipPain[L|R], POSTP_Satisfaction, POSTP_Satisfaction[L|R] must be included.</p></td>
     </tr>
     <tr>
-      <th>col_names</th>
-      <td><p>If TRUE, column names are included in output.</p></td>
+      <th>cens_date</th>
+      <td><p>Censor date for PROM, example if cens_date = '2018-12-31' there will be no PROMS after that date.</p></td>
     </tr>
     <tr>
-      <th>bold</th>
-      <td><p>If TRUE, column names are centered and bold.</p></td>
+      <th>primary_prom_start_year</th>
+      <td><p>Start year for PROM, should probably not be changed.</p></td>
+    </tr>
+    <tr>
+      <th>add_reop_prom</th>
+      <td><p>Boolean if reoperation PROM should be added, that PROM is marked with _reop after every variable.</p></td>
+    </tr>
+    <tr>
+      <th>reop_prom_start_year</th>
+      <td><p>Start year for reop PROM, should probably not be changed.</p></td>
     </tr>
     </table>
+    
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>dataOp with added PROM variables</p>
     
 
   </div>
@@ -140,7 +154,9 @@ one sheet.</p></td>
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-                </ul>
+      
+      <li><a href="#value">Value</a></li>
+          </ul>
 
   </div>
 </div>
