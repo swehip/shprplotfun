@@ -7,7 +7,7 @@
 #' df <- data.frame(cars = 1:3)
 #' attr(df$cars, "map") <- data.frame(levels = 1:3,
 #' labels = c("Volvo", "Saab", "Opel"))
-#' df <- mutate_if(df, check_attr, mutate_label)
+#' df <- dplyr::mutate_if(df, check_attr, mutate_label)
 #' @export
 mutate_label <- function(x) {
   if (is.numeric(x)) {

@@ -46,19 +46,18 @@
 #'
 #' @return Ggplot object containing line-plot.
 #' @examples
-#' library(ggplot2)
-#' library(dplyr)
 #' # y_percent = TRUE
-#' line_plot(df = diamonds, x_var = 'cut', color_var = 'color', y_breaks = 2)
-#' line_plot(df = diamonds, x_var = 'cut', color_var = 'color',
+#' line_plot(df = ggplot2::diamonds, x_var = 'cut', color_var = 'color', y_breaks = 2)
+#' line_plot(df = ggplot2::diamonds, x_var = 'cut', color_var = 'color',
 #' group_by_x_var = FALSE, y_breaks = 2)
 #'
 #' # y_percent = FALSE
-#' line_plot(df = diamonds, x_var = 'cut', color_var = 'color',
+#' line_plot(df = ggplot2::diamonds, x_var = 'cut', color_var = 'color',
 #' y_percent = FALSE, y_breaks = 2000)
 #'
 #' # y variable included
-#' df <- diamonds %>% group_by_('color', 'cut') %>% summarise(y = n())
+#' df <- ggplot2::diamonds %>% dplyr::group_by_('color', 'cut') %>%
+#'   dplyr::summarise(y = dplyr::n())
 #' line_plot(df = df, x_var = 'cut', color_var = 'color', y_var = 'y',
 #' y_percent = FALSE, y_breaks = 2000)
 #' line_plot(df = df[df$color == 'D',], x_var = 'cut', y_var = 'y',
@@ -122,7 +121,7 @@ line_plot <-
         df <-
           df %>%
           dplyr::group_by_(x_var) %>%
-          dplyr::summarise_(y = ~n()) %>%
+          dplyr::summarise_(y = ~dplyr::n()) %>%
           dplyr::mutate_(y2 = ~sum(y))
       } else{
     # Data transformations ----------------------------------------------------
@@ -131,7 +130,7 @@ line_plot <-
           df <-
             df %>%
             dplyr::group_by_(x_var, color_var) %>%
-            dplyr::summarise_(y = ~n()) %>%
+            dplyr::summarise_(y = ~dplyr::n()) %>%
             dplyr::group_by_(x_var) %>%
             dplyr::mutate_(y2 = ~sum(y))
 
@@ -139,7 +138,7 @@ line_plot <-
           df <-
             df %>%
             dplyr::group_by_(x_var, color_var) %>%
-            dplyr::summarise_(y = ~n()) %>%
+            dplyr::summarise_(y = ~dplyr::n()) %>%
             dplyr::group_by_(color_var) %>%
             dplyr::mutate_(y2 = ~sum(y))
         }

@@ -4,18 +4,40 @@
 \alias{line_plot}
 \title{Line plot function}
 \usage{
-line_plot(df, x_var, color_var = NULL, y_var = NULL,
-  group_by_x_var = TRUE, y_percent = TRUE, percent_accuracy = 1,
-  y_lim = NULL, y_breaks = 2000, y_breaks_end = 1e+05,
-  line_size = 1, title = NULL, subtitle = NULL, title_size = 14,
-  subtitle_size = 10, title_margin = 1, y_lab = NULL, x_lab = NULL,
-  background_color = "moccasin", panel_grid_color = "grey",
-  panel_grid_size = 0.3, axis_size = 0.3, axis_text_angle = 0,
-  text_size = 8, fill_colors = c("#377EB8", "#E41A1C", "#4DAF4A",
-  "#984EA3", "#FF7F00", "#FFFF33", "#A65628", "#F781BF"),
-  legend_pos = "bottom", legend_labels = ggplot2::waiver(),
-  label_breaks = ggplot2::waiver(), legend_background = "transparent",
-  legend_row = NULL, legend_col = NULL)
+line_plot(
+  df,
+  x_var,
+  color_var = NULL,
+  y_var = NULL,
+  group_by_x_var = TRUE,
+  y_percent = TRUE,
+  percent_accuracy = 1,
+  y_lim = NULL,
+  y_breaks = 2000,
+  y_breaks_end = 1e+05,
+  line_size = 1,
+  title = NULL,
+  subtitle = NULL,
+  title_size = 14,
+  subtitle_size = 10,
+  title_margin = 1,
+  y_lab = NULL,
+  x_lab = NULL,
+  background_color = "moccasin",
+  panel_grid_color = "grey",
+  panel_grid_size = 0.3,
+  axis_size = 0.3,
+  axis_text_angle = 0,
+  text_size = 8,
+  fill_colors = c("#377EB8", "#E41A1C", "#4DAF4A", "#984EA3", "#FF7F00", "#FFFF33",
+    "#A65628", "#F781BF"),
+  legend_pos = "bottom",
+  legend_labels = ggplot2::waiver(),
+  label_breaks = ggplot2::waiver(),
+  legend_background = "transparent",
+  legend_row = NULL,
+  legend_col = NULL
+)
 }
 \arguments{
 \item{df}{Data frame.}
@@ -97,19 +119,18 @@ Ggplot object containing line-plot.
 Standard line plot using ggplot2. Y-variable not necessary.
 }
 \examples{
-library(ggplot2)
-library(dplyr)
 # y_percent = TRUE
-line_plot(df = diamonds, x_var = 'cut', color_var = 'color', y_breaks = 2)
-line_plot(df = diamonds, x_var = 'cut', color_var = 'color',
+line_plot(df = ggplot2::diamonds, x_var = 'cut', color_var = 'color', y_breaks = 2)
+line_plot(df = ggplot2::diamonds, x_var = 'cut', color_var = 'color',
 group_by_x_var = FALSE, y_breaks = 2)
 
 # y_percent = FALSE
-line_plot(df = diamonds, x_var = 'cut', color_var = 'color',
+line_plot(df = ggplot2::diamonds, x_var = 'cut', color_var = 'color',
 y_percent = FALSE, y_breaks = 2000)
 
 # y variable included
-df <- diamonds \%>\% group_by_('color', 'cut') \%>\% summarise(y = n())
+df <- ggplot2::diamonds \%>\% dplyr::group_by_('color', 'cut') \%>\%
+  dplyr::summarise(y = dplyr::n())
 line_plot(df = df, x_var = 'cut', color_var = 'color', y_var = 'y',
 y_percent = FALSE, y_breaks = 2000)
 line_plot(df = df[df$color == 'D',], x_var = 'cut', y_var = 'y',

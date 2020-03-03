@@ -4,16 +4,34 @@
 \alias{prom_trends}
 \title{PROM-trends plot function}
 \usage{
-prom_trends(eq_vas_exp, eq_vas_obs, eq_vas_riket, pain_exp, pain_obs,
-  pain_riket, satis_exp, satis_obs, satis_riket, riket_name = "Riket",
+prom_trends(
+  eq_vas_exp,
+  eq_vas_obs,
+  eq_vas_riket,
+  pain_exp,
+  pain_obs,
+  pain_riket,
+  satis_exp,
+  satis_obs,
+  satis_riket,
+  riket_name = "Riket",
   y_labs = c("EQ VAS", "Smärt VAS", "Tillfredställelse"),
-  y_breaks = c(5, 5, 5), year = c("2008/09", "2010/11", "2012/13",
-  "2014/15"), subset = 1, text_size = 8,
+  y_breaks = c(5, 5, 5),
+  year = c("2008/09", "2010/11", "2012/13", "2014/15"),
+  subset = 1,
+  text_size = 8,
   legend_labels = c("Förväntat", "Observerat", "Riket"),
   line_colors = c("#377EB8", "#E41A1C", "black"),
-  background_color = "moccasin", panel_grid_color = "grey",
-  panel_grid_size = 0.3, axis_size = 0.3, line_size = 0.5,
-  point_size = 1.5, legend_pos = c(0, 0), n_row = 1, n_col = 3)
+  background_color = "moccasin",
+  panel_grid_color = "grey",
+  panel_grid_size = 0.3,
+  axis_size = 0.3,
+  line_size = 0.5,
+  point_size = 1.5,
+  legend_pos = c(0, 0),
+  n_row = 1,
+  n_col = 3
+)
 }
 \arguments{
 \item{eq_vas_exp}{Data frame with expected EQ VAS data.}
@@ -80,7 +98,7 @@ List of several gtable objects where each gtable object is one clinic
 Visualizing PROM-trends for each clinic using ggplot2.
 }
 \examples{
-# Create trend plot for SU/Mölndal
+# Create trend plot for SU/MÃ¶lndal
 # Look at the 9 data sets to see the required structure.
 # Data sets are included in the package.
 

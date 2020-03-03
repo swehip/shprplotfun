@@ -15,8 +15,6 @@
 #'
 #' @examples
 #' # How the data set was created
-#' library(dplyr)
-#' library(ggplot2)
 #'
 #' swe_example <- dplyr::filter(swe_kommuner_allpoints,
 #'   piece %in% c("1", "2")) %>%
@@ -26,9 +24,9 @@
 #' # Example on how to make map of Sweden using ggplot2.
 #' # Note that coord_map() is essential for the map to be in actual scale.
 #'
-#' ggplot(data = swe_kommuner, aes(x=long, y=lat, group = group)) +
-#'   geom_polygon(color = "white", size = 0, fill = "blue")  +
-#'   coord_map() +
-#'   theme_minimal()
+#' ggplot2::ggplot(data = swe_kommuner, ggplot2::aes(x=long, y=lat, group = group)) +
+#'   ggplot2::geom_polygon(color = "white", size = 0, fill = "blue")  +
+#'   ggplot2::coord_map() +
+#'   ggplot2::theme_minimal()
 #'
 "swe_kommuner"

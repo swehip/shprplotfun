@@ -4,19 +4,42 @@
 \alias{bar_plot}
 \title{Bar plot function}
 \usage{
-bar_plot(df, x_var, fill_var = NULL, y_var = NULL, style = c("stack",
-  "fill", "dodge")[1], group_by_x_var = TRUE, y_percent = TRUE,
-  percent_accuracy = 1, y_lim = NULL, y_breaks = 2000,
-  x_breaks = NULL, y_breaks_end = 1e+05, title = NULL,
-  subtitle = NULL, title_size = 14, subtitle_size = 10,
-  title_margin = 1, y_lab = NULL, x_lab = NULL,
-  background_color = "moccasin", panel_grid_color = "grey",
-  panel_grid_size = 0.3, contour_line_size = 0.1, axis_size = 0.3,
-  axis_text_angle = 0, text_size = 8, fill_colors = c("#E41A1C",
-  "#377EB8", "#4DAF4A", "#984EA3", "#FF7F00", "#FFFF33", "#A65628",
-  "#F781BF"), legend_pos = "bottom", legend_labels = ggplot2::waiver(),
-  label_breaks = ggplot2::waiver(), legend_background = "transparent",
-  legend_row = NULL, legend_col = NULL)
+bar_plot(
+  df,
+  x_var,
+  fill_var = NULL,
+  y_var = NULL,
+  style = c("stack", "fill", "dodge")[1],
+  group_by_x_var = TRUE,
+  y_percent = TRUE,
+  percent_accuracy = 1,
+  y_lim = NULL,
+  y_breaks = 2000,
+  x_breaks = NULL,
+  y_breaks_end = 1e+05,
+  title = NULL,
+  subtitle = NULL,
+  title_size = 14,
+  subtitle_size = 10,
+  title_margin = 1,
+  y_lab = NULL,
+  x_lab = NULL,
+  background_color = "moccasin",
+  panel_grid_color = "grey",
+  panel_grid_size = 0.3,
+  contour_line_size = 0.1,
+  axis_size = 0.3,
+  axis_text_angle = 0,
+  text_size = 8,
+  fill_colors = c("#E41A1C", "#377EB8", "#4DAF4A", "#984EA3", "#FF7F00", "#FFFF33",
+    "#A65628", "#F781BF"),
+  legend_pos = "bottom",
+  legend_labels = ggplot2::waiver(),
+  label_breaks = ggplot2::waiver(),
+  legend_background = "transparent",
+  legend_row = NULL,
+  legend_col = NULL
+)
 }
 \arguments{
 \item{df}{Data frame.}
@@ -103,38 +126,37 @@ Plot a bar plot using ggplot2.
 }
 \examples{
 
-library(ggplot2)
-library(dplyr)
 # Style stack
-bar_plot(df = diamonds, x_var = 'color',
+bar_plot(df = ggplot2::diamonds, x_var = 'color',
 fill_var = 'cut', y_breaks = 2)
-bar_plot(df = diamonds, x_var = 'color',
+bar_plot(df = ggplot2::diamonds, x_var = 'color',
 fill_var = 'cut', y_percent = FALSE, y_breaks = 2000)
 
 # Style stack with y variable included
-df <- diamonds \%>\% group_by_('color', 'cut') \%>\% summarise(y = n())
+df <- ggplot2::diamonds \%>\% dplyr::group_by_('color', 'cut') \%>\%
+  dplyr::summarise(y = dplyr::n())
 bar_plot(df = df, x_var = 'color',
   fill_var = 'cut', y_var = 'y', y_breaks = 2)
 
 # Style fill
-bar_plot(df = diamonds, x_var = 'color', fill_var = 'cut',
+bar_plot(df = ggplot2::diamonds, x_var = 'color', fill_var = 'cut',
 y_breaks = 10, style = 'fill')
 
 # Style dodge grouped by x_var (color in this case)
-bar_plot(df = diamonds, x_var = 'color', fill_var = 'cut',
+bar_plot(df = ggplot2::diamonds, x_var = 'color', fill_var = 'cut',
 style = 'dodge', y_breaks = 10)
-bar_plot(df = diamonds, x_var = 'color', fill_var = 'cut',
+bar_plot(df = ggplot2::diamonds, x_var = 'color', fill_var = 'cut',
 style = 'dodge', y_percent = FALSE, y_breaks = 2000)
 
 # Style dodge grouped by fill_var (cut in this case)
-bar_plot(df = diamonds, x_var = 'color', fill_var = 'cut',
+bar_plot(df = ggplot2::diamonds, x_var = 'color', fill_var = 'cut',
 style = 'dodge', group_by_x_var = FALSE, y_breaks = 10)
 
 # Since bar_plot() returns ggplot object, it is possible to add more features
 # Here we zoom the plot using coord_cartesian():
-df <- dplyr::filter(diamonds, clarity \%in\% c('SI1', 'SI2', 'VS2'))
+df <- dplyr::filter(ggplot2::diamonds, clarity \%in\% c('SI1', 'SI2', 'VS2'))
 bar_plot(df = df, x_var = 'clarity',
 style = 'dodge', y_percent = FALSE, y_breaks = 2000) +
-  coord_cartesian(ylim = c(8000, 14000))
+  ggplot2::coord_cartesian(ylim = c(8000, 14000))
 
 }

@@ -20,15 +20,13 @@ swe_landsting_allpoints
 Sweden map data set with county included
 }
 \examples{
-library(ggplot2)
 
 # Example on how to make map of Sweden using ggplot2.
 # Note that coord_map() is essential for the map to be in actual scale.
 
-ggplot(data = swe_landsting_allpoints, aes(x=long, y=lat, group = group)) +
-  geom_polygon(color = "white", size = 0, fill = "blue")  +
-  coord_map() +
-  theme_minimal()
-
+ggplot2::ggplot(data = swe_landsting_allpoints, ggplot2::aes(x=long, y=lat, group = group)) +
+  ggplot2::geom_polygon(color = "white", size = 0, fill = "blue")  +
+  ggplot2::coord_map() +
+  ggplot2::theme_minimal()
 }
 \keyword{datasets}

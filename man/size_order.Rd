@@ -18,10 +18,9 @@ Useful when making bar plots and have the most common level in the bottom.
 Also possible to remove uncommon levels and create new level called other.
 }
 \examples{
-library(ggplot2)
-table(diamonds$cut)
-in_size_order <- size_order(diamonds$cut)
+table(ggplot2::diamonds$cut)
+in_size_order <- size_order(ggplot2::diamonds$cut)
 table(in_size_order)
-in_size_order <- size_order(diamonds$cut, 2, "Others")
+in_size_order <- size_order(ggplot2::diamonds$cut, 2, "Others")
 table(in_size_order)
 }

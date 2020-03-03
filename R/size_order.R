@@ -6,11 +6,10 @@
 #' @param other_count How many levels should be considered as other level
 #' @param other_level What the new level should be called
 #' @examples
-#' library(ggplot2)
-#' table(diamonds$cut)
-#' in_size_order <- size_order(diamonds$cut)
+#' table(ggplot2::diamonds$cut)
+#' in_size_order <- size_order(ggplot2::diamonds$cut)
 #' table(in_size_order)
-#' in_size_order <- size_order(diamonds$cut, 2, "Others")
+#' in_size_order <- size_order(ggplot2::diamonds$cut, 2, "Others")
 #' table(in_size_order)
 #' @export
 size_order <- function(x, other_count = NULL, other_level = "\u00D6vriga") {

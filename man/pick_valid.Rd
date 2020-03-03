@@ -6,6 +6,10 @@
 \usage{
 pick_valid(x)
 }
+\arguments{
+\item{x}{vector wit hPROM values}
+}
 \description{
-If there are several PROM on same date, this function populate rows with existing PROM values.
+If there are several PROM on same date, this function populate rows with
+existing PROM values.
 }

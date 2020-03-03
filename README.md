@@ -11,11 +11,12 @@ annual report for the Swedish Hip Arthroplasty Register.
 You can install the latest version of shprplotfun with:
 
 ``` r
-# install.packages("devtools")
-devtools::install_github("swehip/shprplotfun")
+# install.packages("remotes")
+remotes::install_github("swehip/shprplotfun")
 ```
 
-Sometimes it occurs errors with the documention. Might work by restarting the session with
+Sometimes it occurs errors with the documention. Might work by
+restarting the session with
 
 ``` r
 .rs.restartR()

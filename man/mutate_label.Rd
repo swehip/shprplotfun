@@ -19,5 +19,5 @@ Labelled are used to get right labels when saving to spss using package haven
 df <- data.frame(cars = 1:3)
 attr(df$cars, "map") <- data.frame(levels = 1:3,
 labels = c("Volvo", "Saab", "Opel"))
-df <- mutate_if(df, check_attr, mutate_label)
+df <- dplyr::mutate_if(df, check_attr, mutate_label)
 }

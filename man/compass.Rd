@@ -4,9 +4,18 @@
 \alias{compass}
 \title{Compass plot function}
 \usage{
-compass(df, riket_name = "Riket", ncol = 6, riket_color = "#D95F02",
-  hosp_color = "#1B9E77", alpha_riket = 0.6, alpha_hosp = 0.6,
-  titles = NULL, title_size = 8, line_size = 0.1)
+compass(
+  df,
+  riket_name = "Riket",
+  ncol = 6,
+  riket_color = "#D95F02",
+  hosp_color = "#1B9E77",
+  alpha_riket = 0.6,
+  alpha_hosp = 0.6,
+  titles = NULL,
+  title_size = 8,
+  line_size = 0.1
+)
 }
 \arguments{
 \item{df}{Data frame.}

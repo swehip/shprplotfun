@@ -4,29 +4,44 @@
 \alias{add_prom}
 \title{Add PROM to operation data}
 \usage{
-add_prom(dataOp, dataPREP, dataPOSTP, cens_date = NULL,
-  primary_prom_start_year = 2002, add_reop_prom = FALSE,
-  reop_prom_start_year = 2017)
+add_prom(
+  dataOp,
+  dataPREP,
+  dataPOSTP,
+  cens_date = NULL,
+  primary_prom_start_year = 2002,
+  add_reop_prom = FALSE,
+  reop_prom_start_year = 2017
+)
 }
 \arguments{
-\item{dataOp}{Corresponds to dataOperations in SHPR datalayer. Variables needed are SubjectKey, P_Side, P_ProstType and P_SurgDate.}
+\item{dataOp}{Corresponds to dataOperations in SHPR datalayer.
+Variables needed are SubjectKey, P_Side, P_ProstType and P_SurgDate.}
 
-\item{dataPREP}{Corresponds to dataPROMBefore. Variables SubjectKey, PREP_HipPain[L|R] must be included.}
+\item{dataPREP}{Corresponds to dataPROMBefore. Variables SubjectKey,
+PREP_HipPain[L|R] must be included.}
 
-\item{dataPOSTP}{Corresponds to dataPROMAfter. Variables SubjectKey, POSTP_HipPain[L|R], POSTP_Satisfaction, POSTP_Satisfaction[L|R] must be included.}
+\item{dataPOSTP}{Corresponds to dataPROMAfter. Variables SubjectKey,
+POSTP_HipPain[L|R], POSTP_Satisfaction, POSTP_Satisfaction[L|R]
+must be included.}
 
-\item{cens_date}{Censor date for PROM, example if cens_date = '2018-12-31' there will be no PROMS after that date.}
+\item{cens_date}{Censor date for PROM, example if cens_date = '2018-12-31'
+there will be no PROMS after that date.}
 
-\item{primary_prom_start_year}{Start year for PROM, should probably not be changed.}
+\item{primary_prom_start_year}{Start year for PROM, should probably
+not be changed.}
 
-\item{add_reop_prom}{Boolean if reoperation PROM should be added, that PROM is marked with _reop after every variable.}
+\item{add_reop_prom}{Boolean if reoperation PROM should be added, that PROM
+is marked with _reop after every variable.}
 
-\item{reop_prom_start_year}{Start year for reop PROM, should probably not be changed.}
+\item{reop_prom_start_year}{Start year for reop PROM,
+should probably not be changed.}
 }
 \value{
 dataOp with added PROM variables
 }
 \description{
-Easy way to add PROM data to operation data. Preoperation and postoperation 1 year, 6 years and 10 years are added.
+Easy way to add PROM data to operation data. Preoperation and postoperation
+1 year, 6 years and 10 years are added.
 Also an option to add reoperation PROM.
 }

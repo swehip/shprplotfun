@@ -17,8 +17,6 @@ observed <- function(outcome, data1, data2, data3, data4,
                      mean_group   = "Unit") {
 
 
-  require(dplyr)
-
   add_observed <- function(df, year_period, mean_group, outcome){
 
     df_names <- c("hospital", paste0("obs", year_period))
@@ -46,5 +44,5 @@ observed <- function(outcome, data1, data2, data3, data4,
   dplyr::full_join(data1, data2) %>%
     dplyr::full_join(data3) %>%
     dplyr::full_join(data4) %>%
-    dplyr::arrange(hospital)
+    dplyr::arrange(dplyr::.data$hospital)
 }

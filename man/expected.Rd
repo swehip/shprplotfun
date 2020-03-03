@@ -4,9 +4,18 @@
 \alias{expected}
 \title{Expected PROM}
 \usage{
-expected(outcome, data1, data2, data3, data4, year_period1 = "2008_2009",
-  year_period2 = "2010_2011", year_period3 = "2012_2013",
-  year_period4 = "2014_2015", mean_group = "Unit")
+expected(
+  outcome,
+  data1,
+  data2,
+  data3,
+  data4,
+  year_period1 = "2008_2009",
+  year_period2 = "2010_2011",
+  year_period3 = "2012_2013",
+  year_period4 = "2014_2015",
+  mean_group = "Unit"
+)
 }
 \arguments{
 \item{outcome}{Linear model outcome variable.}

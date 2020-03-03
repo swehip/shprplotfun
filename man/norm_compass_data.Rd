@@ -4,16 +4,19 @@
 \name{norm_compass_data}
 \alias{norm_compass_data}
 \title{Normalized compass dataset}
-\format{A data frame with 68 rows and 9 variables: \describe{
-  \item{Unit}{hospital name, ordered factor} \item{Satisfaction}{normalized
-  satisfaction mean, numeric} \item{Pain reduction}{normalized pain reduction
-  before operation and 1 year after, numeric} \item{Gain in EQ5D}{normalized
-  gain in EQ5D-index before operation and 1 year after, numeric}
+\format{A data frame with 68 rows and 9 variables:
+  \describe{
+    \item{Unit}{hospital name, ordered factor}
+    \item{Satisfaction}{normalized satisfaction mean, numeric}
+  \item{Pain reduction}{normalized pain reduction before operation and
+    1 year after (numeric)}
+  \item{Gain in EQ5D}{normalized gain in EQ5D-index before operation and 1 year after (numeric)}
   \item{AE90}{normalized adverse events within 90 days, numeric}
-  \item{Coverage}{normalized coverage, numeric} \item{Reop 2
-  years}{normalized reoperation within 2 years, numeric} \item{Implant 5
-  years}{normalized implant survival within 5 years, numeric} \item{Implant
-  10 years}{normalized implant survival within 10 years, numeric} }}
+  \item{Coverage}{normalized coverage, numeric}
+  \item{Reop 2 years}{normalized reoperation within 2 years, numeric}
+  \item{Implant 5 years}{normalized implant survival within 5 years, numeric}
+  \item{Implant 10 years}{normalized implant survival within 10 years, numeric}
+}}
 \usage{
 norm_compass_data
 }

@@ -52,15 +52,19 @@
 #' @return ggplot object containing Kaplan-Meier plot.
 #'
 #' @examples
-#' library(survival)
 #'
 #' # KM-plot with 2 levels
-#' survfit_obj <- survfit(Surv(time/365.24, status) ~ sex, data = colon)
+#' survfit_obj <-
+#'   survival::survfit(survival::Surv(time/365.24, status) ~ sex,
+#'   data = survival::colon
+#' )
 #' km_plot(survfit_obj, y_lim = c(40,100), y_breaks = 10, x_lim = c(0,9))
 #'
 #' # KM-plot with 6 levels
 #' survfit_obj <-
-#'   survfit(Surv(time/365.24, status) ~ sex + differ, data = colon)
+#'   survival::survfit(survival::Surv(time/365.24, status) ~ sex + differ,
+#'   data = survival::colon
+#' )
 #' km_plot(survfit_obj, y_lim = c(30,100), y_breaks = 10,
 #' x_lim = c(0,9), line_colors =
 #'   c('dodgerblue', 'red', 'green', 'black', 'yellow', 'chocolate'))

@@ -4,13 +4,30 @@
 \alias{trend_plot}
 \title{Trend plot function}
 \usage{
-trend_plot(df, x_var, y_var, y_breaks = 5, y_lim = c(54.9, 65.1),
-  x_breaks = 5, y_lab = "Procent kvinnor", x_lab = "år",
-  title = NULL, subtitle = NULL, title_size = 14,
-  subtitle_size = 12, line_color = "#377EB8", line_size = 1,
-  point_size = 1, background_color = "moccasin",
-  panel_grid_color = "grey", panel_grid_size = 0.3, axis_size = 0.3,
-  axis_text_angle = 0, text_size = 8, percent_accuracy = 1)
+trend_plot(
+  df,
+  x_var,
+  y_var,
+  y_breaks = 5,
+  y_lim = c(54.9, 65.1),
+  x_breaks = 5,
+  y_lab = "Procent kvinnor",
+  x_lab = "år",
+  title = NULL,
+  subtitle = NULL,
+  title_size = 14,
+  subtitle_size = 12,
+  line_color = "#377EB8",
+  line_size = 1,
+  point_size = 1,
+  background_color = "moccasin",
+  panel_grid_color = "grey",
+  panel_grid_size = 0.3,
+  axis_size = 0.3,
+  axis_text_angle = 0,
+  text_size = 8,
+  percent_accuracy = 1
+)
 }
 \arguments{
 \item{df}{Data frame.}

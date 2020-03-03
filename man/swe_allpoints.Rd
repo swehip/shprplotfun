@@ -43,15 +43,14 @@ swe_allpoints
 A dataset used to create elegant figures of Sweden with ggplot2.
 }
 \examples{
-library(ggplot2)
 
 # Example on how to make map of Sweden using ggplot2.
 # Note that coord_map() is essential for the map to be in actual scale.
 
-ggplot(data = swe_allpoints, aes(x=long, y=lat, group = group)) +
-  geom_polygon(color = "transparent", fill = "blue")  +
-  coord_map() +
-  theme_minimal()
+ggplot2::ggplot(data = swe_allpoints, ggplot2::aes(x=long, y=lat, group = group)) +
+  ggplot2::geom_polygon(color = "transparent", fill = "blue")  +
+  ggplot2::coord_map() +
+  ggplot2::theme_minimal()
 
 }
 \keyword{datasets}

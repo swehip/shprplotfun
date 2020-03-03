@@ -89,7 +89,7 @@ age_pyramid <-
   df <-
     df %>%
     dplyr::group_by_(gender_var, age_var) %>%
-    dplyr::summarise_(Population = ~n())
+    dplyr::summarise_(Population = ~dplyr::n())
 
   df      <- stats::na.omit(df)
   n_man   <- sum(df$Population[df[, gender_var] == man_level])

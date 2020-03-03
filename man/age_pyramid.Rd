@@ -4,19 +4,38 @@
 \alias{age_pyramid}
 \title{Age-pyramid plot function}
 \usage{
-age_pyramid(df, age_var = "Alder", gender_var = "Kon",
-  man_level = "Man", age_breaks = c(0, 39, 44, 49, 54, 59, 64, 69, 74,
-  79, 84, Inf), age_labels = c("0-39", "40-44", "45-49", "50-54",
-  "55-59", "60-64", "65-69", "70-74", "75-79", "80-84", "85+"),
-  percent = TRUE, x_breaks = 5, x_breaks_end = x_breaks * 1e+05,
-  title = "", subtitle = NULL, title_size = 14, subtitle_size = 10,
-  title_margin = 1, y_lab = NULL, x_lab = NULL,
-  background_color = "moccasin", panel_grid_color = "grey",
-  panel_grid_size = 0.3, contour_line_size = 0.1, axis_size = 0.3,
-  axis_text_angle = 0, text_size = 8, fill_colors = c("#377EB8",
-  "#E41A1C"), legend_pos = c(0, 0), legend_labels = ggplot2::waiver(),
-  label_breaks = ggplot2::waiver(), legend_row = NULL,
-  legend_col = NULL)
+age_pyramid(
+  df,
+  age_var = "Alder",
+  gender_var = "Kon",
+  man_level = "Man",
+  age_breaks = c(0, 39, 44, 49, 54, 59, 64, 69, 74, 79, 84, Inf),
+  age_labels = c("0-39", "40-44", "45-49", "50-54", "55-59", "60-64", "65-69", "70-74",
+    "75-79", "80-84", "85+"),
+  percent = TRUE,
+  x_breaks = 5,
+  x_breaks_end = x_breaks * 1e+05,
+  title = "",
+  subtitle = NULL,
+  title_size = 14,
+  subtitle_size = 10,
+  title_margin = 1,
+  y_lab = NULL,
+  x_lab = NULL,
+  background_color = "moccasin",
+  panel_grid_color = "grey",
+  panel_grid_size = 0.3,
+  contour_line_size = 0.1,
+  axis_size = 0.3,
+  axis_text_angle = 0,
+  text_size = 8,
+  fill_colors = c("#377EB8", "#E41A1C"),
+  legend_pos = c(0, 0),
+  legend_labels = ggplot2::waiver(),
+  label_breaks = ggplot2::waiver(),
+  legend_row = NULL,
+  legend_col = NULL
+)
 }
 \arguments{
 \item{df}{Data frame.}
