@@ -1,7 +1,7 @@
 Package: shprplotfun
 Type: Package
 Title: R functions for SHPR annual report
-Version: 0.1.6
+Version: 0.1.7
 Author: Daniel Odin <daniel.odin@gmail.com>
 Maintainer: Daniel Odin <daniel.odin@gmail.com>
 Description: Several functions used for SHPR annual report, 
@@ -21,7 +21,8 @@ Imports:
   writexl
 Suggests:
   survival,
-  xlsx
+  xlsx,
+  extrafont
 LazyData: true
 URL: https://www.github.com/swehip/shprplotfun
 BugReports: https://www.github.com/swehip/shprplotfun/issues
