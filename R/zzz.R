@@ -15,7 +15,7 @@
   # If the package is installed, we can assume that the intention has been to
   # make relevant fonts available
   } else if (
-      interactive() &&
+      getOption("shprplotfun_read_fonts", default = interactive()) &&
       !"Arial Narrow" %in% extrafont::fonts() &&
       ask("Register 'Arial Narrow' for correct export to PNG?")) {
     extrafont::font_import()
