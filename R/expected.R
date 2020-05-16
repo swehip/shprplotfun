@@ -55,7 +55,7 @@ expected <- function(outcome, data1, data2, data3, data4,
 
     df <- df %>%
       dplyr::group_by(!!mean_group) %>%
-      dplyr::summarise(res = mean(dplyr::.data$fit_values, na.rm = TRUE),
+      dplyr::summarise(res = mean(fit_values, na.rm = TRUE),
                        n = sum(!is.na(!!outcome)))
 
     names(df) <- df_names
