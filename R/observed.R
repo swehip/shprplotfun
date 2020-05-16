@@ -44,5 +44,5 @@ observed <- function(outcome, data1, data2, data3, data4,
   dplyr::full_join(data1, data2) %>%
     dplyr::full_join(data3) %>%
     dplyr::full_join(data4) %>%
-    dplyr::arrange(dplyr::.data$hospital)
+    dplyr::arrange(hospital)
 }
