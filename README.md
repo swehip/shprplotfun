@@ -1,37 +1,6 @@
+# Archived package
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
+This package is no longer in use since the Swedish Hip Arthroplasty Register is now a part of the Swedish Arthroplasty Register (SAR).
+Relevant functions from the package have been migrated to a new `{slrplotfun}` package currently (2022-10-19) available at https://gitlab.com/registercentrum/statistikenheten/slrplotfun (a package which might be further refactored into the new package `{rcplot}`).
 
-# shprplotfun
-
-The goal of shprplotfun is to provide functionality to produce the
-annual report for the Swedish Hip Arthroplasty Register.
-
-## Installation
-
-You can install the latest version of shprplotfun with:
-
-``` r
-# install.packages("remotes")
-remotes::install_github("swehip/shprplotfun")
-```
-
-Sometimes it occurs errors with the documention. Might work by
-restarting the session with
-
-``` r
-.rs.restartR()
-```
-
-## Arial narrow extra font
-
-The package requires *Arial Narrow* loaded through the `extrafont`
-package. This can be time consuming and opted out through the
-`shprplotfun_read_fonts` option. The default for this `interactive()`.
-To skip the font option use:
-
-``` r
-options(shprplotfun_read_fonts = FALSE)
-```
-
-Note that in a Linux environment you may need to install the MS fonts,
-e.g. for Ubuntu run `sudo apt-get install ttf-mscorefonts-installer`.
+Source code is, however, still available in the archived version!
